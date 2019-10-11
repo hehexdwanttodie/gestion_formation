@@ -19,6 +19,9 @@ class FormationsController extends AppController
      */
     public function index()
     {
+        $this->paginate = [
+            'contain' => ['Category', 'Frequency', 'Modality']
+        ];
         $formations = $this->paginate($this->Formations);
 
         $this->set(compact('formations'));
@@ -34,7 +37,7 @@ class FormationsController extends AppController
     public function view($id = null)
     {
         $formation = $this->Formations->get($id, [
-            'contain' => ['Positions']
+            'contain' => ['Category', 'Frequency', 'Modality', 'Employes', 'Positions']
         ]);
 
         $this->set('formation', $formation);
@@ -57,8 +60,12 @@ class FormationsController extends AppController
             }
             $this->Flash->error(__('The formation could not be saved. Please, try again.'));
         }
+        $category = $this->Formations->Category->find('list', ['limit' => 200]);
+        $frequency = $this->Formations->Frequency->find('list', ['limit' => 200]);
+        $modality = $this->Formations->Modality->find('list', ['limit' => 200]);
+        $employes = $this->Formations->Employes->find('list', ['limit' => 200]);
         $positions = $this->Formations->Positions->find('list', ['limit' => 200]);
-        $this->set(compact('formation', 'positions'));
+        $this->set(compact('formation', 'category', 'frequency', 'modality', 'employes', 'positions'));
     }
 
     /**
@@ -71,7 +78,7 @@ class FormationsController extends AppController
     public function edit($id = null)
     {
         $formation = $this->Formations->get($id, [
-            'contain' => ['Positions']
+            'contain' => ['Employes', 'Positions']
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $formation = $this->Formations->patchEntity($formation, $this->request->getData());
@@ -82,8 +89,12 @@ class FormationsController extends AppController
             }
             $this->Flash->error(__('The formation could not be saved. Please, try again.'));
         }
+        $category = $this->Formations->Category->find('list', ['limit' => 200]);
+        $frequency = $this->Formations->Frequency->find('list', ['limit' => 200]);
+        $modality = $this->Formations->Modality->find('list', ['limit' => 200]);
+        $employes = $this->Formations->Employes->find('list', ['limit' => 200]);
         $positions = $this->Formations->Positions->find('list', ['limit' => 200]);
-        $this->set(compact('formation', 'positions'));
+        $this->set(compact('formation', 'category', 'frequency', 'modality', 'employes', 'positions'));
     }
 
     /**
@@ -105,17 +116,10 @@ class FormationsController extends AppController
 
         return $this->redirect(['action' => 'index']);
     }
-
-    public function initialize()
-    {
-        parent::initialize();
-        $this->Auth->allow([]);
-    }
-
     public function isAuthorized($user)
     {
         $action = $this->request->getParam('action');
-        if (in_array($action, ['add', 'positions', 'delete', 'edit','view','index'])) {
+        if (in_array($action, ['index','display','add', 'edit', 'delete','view'])) {
             return true;
         }
     }

@@ -14,6 +14,10 @@
         <li><?= $this->Html->link(__('New Position'), ['controller' => 'Positions', 'action' => 'add']) ?></li>
         <li><?= $this->Html->link(__('List Buildings'), ['controller' => 'Buildings', 'action' => 'index']) ?></li>
         <li><?= $this->Html->link(__('New Building'), ['controller' => 'Buildings', 'action' => 'add']) ?></li>
+        <li><?= $this->Html->link(__('List Civilities'), ['controller' => 'Civilities', 'action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('New Civility'), ['controller' => 'Civilities', 'action' => 'add']) ?></li>
+        <li><?= $this->Html->link(__('List Languages'), ['controller' => 'Languages', 'action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('New Language'), ['controller' => 'Languages', 'action' => 'add']) ?></li>
         <li><?= $this->Html->link(__('List Formations'), ['controller' => 'Formations', 'action' => 'index']) ?></li>
         <li><?= $this->Html->link(__('New Formation'), ['controller' => 'Formations', 'action' => 'add']) ?></li>
     </ul>
@@ -43,8 +47,8 @@
                 <td><?= $employe->has('user') ? $this->Html->link($employe->user->id, ['controller' => 'Users', 'action' => 'view', $employe->user->id]) : '' ?></td>
                 <td><?= $employe->has('position') ? $this->Html->link($employe->position->title, ['controller' => 'Positions', 'action' => 'view', $employe->position->id]) : '' ?></td>
                 <td><?= $employe->has('building') ? $this->Html->link($employe->building->id, ['controller' => 'Buildings', 'action' => 'view', $employe->building->id]) : '' ?></td>
-                <td><?= $this->Number->format($employe->civility_id) ?></td>
-                <td><?= $this->Number->format($employe->language_id) ?></td>
+                <td><?= $employe->has('civility') ? $this->Html->link($employe->civility->name, ['controller' => 'Civilities', 'action' => 'view', $employe->civility->id]) : '' ?></td>
+                <td><?= $employe->has('language') ? $this->Html->link($employe->language->name, ['controller' => 'Languages', 'action' => 'view', $employe->language->id]) : '' ?></td>
                 <td><?= h($employe->email) ?></td>
                 <td><?= h($employe->name) ?></td>
                 <td><?= h($employe->firstName) ?></td>

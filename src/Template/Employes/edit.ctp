@@ -20,6 +20,10 @@
         <li><?= $this->Html->link(__('New Position'), ['controller' => 'Positions', 'action' => 'add']) ?></li>
         <li><?= $this->Html->link(__('List Buildings'), ['controller' => 'Buildings', 'action' => 'index']) ?></li>
         <li><?= $this->Html->link(__('New Building'), ['controller' => 'Buildings', 'action' => 'add']) ?></li>
+        <li><?= $this->Html->link(__('List Civilities'), ['controller' => 'Civilities', 'action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('New Civility'), ['controller' => 'Civilities', 'action' => 'add']) ?></li>
+        <li><?= $this->Html->link(__('List Languages'), ['controller' => 'Languages', 'action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('New Language'), ['controller' => 'Languages', 'action' => 'add']) ?></li>
         <li><?= $this->Html->link(__('List Formations'), ['controller' => 'Formations', 'action' => 'index']) ?></li>
         <li><?= $this->Html->link(__('New Formation'), ['controller' => 'Formations', 'action' => 'add']) ?></li>
     </ul>
@@ -32,8 +36,8 @@
             echo $this->Form->control('user_id', ['options' => $users]);
             echo $this->Form->control('position_id', ['options' => $positions]);
             echo $this->Form->control('building_id', ['options' => $buildings, 'empty' => true]);
-            echo $this->Form->control('civility_id');
-            echo $this->Form->control('language_id');
+            echo $this->Form->control('civility_id', ['options' => $civilities]);
+            echo $this->Form->control('language_id', ['options' => $languages]);
             echo $this->Form->control('email');
             echo $this->Form->control('name');
             echo $this->Form->control('firstName');

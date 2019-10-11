@@ -136,5 +136,4 @@ class UsersController extends AppController
             return true;
         }
     }
-
 }

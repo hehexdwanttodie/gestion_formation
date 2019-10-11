@@ -27,8 +27,8 @@ class EmployesTableTest extends TestCase
         'app.Users',
         'app.Positions',
         'app.Buildings',
-        'app.Civility',
-        'app.Language',
+        'app.Civilities',
+        'app.Languages',
         'app.Formations'
     ];
 

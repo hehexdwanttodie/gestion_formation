@@ -16,6 +16,7 @@ class FormationsFixture extends TestFixture
     // @codingStandardsIgnoreStart
     public $fields = [
         'id' => ['type' => 'integer', 'length' => 11, 'unsigned' => false, 'null' => false, 'default' => null, 'comment' => '', 'autoIncrement' => true, 'precision' => null],
+        'number' => ['type' => 'string', 'length' => 255, 'null' => false, 'default' => null, 'collate' => 'utf8_unicode_ci', 'comment' => '', 'precision' => null, 'fixed' => null],
         'title' => ['type' => 'string', 'length' => 255, 'null' => false, 'default' => null, 'collate' => 'utf8_unicode_ci', 'comment' => '', 'precision' => null, 'fixed' => null],
         'description' => ['type' => 'string', 'length' => 255, 'null' => false, 'default' => null, 'collate' => 'utf8_unicode_ci', 'comment' => '', 'precision' => null, 'fixed' => null],
         'category_id' => ['type' => 'integer', 'length' => 11, 'unsigned' => false, 'null' => false, 'default' => null, 'comment' => '', 'precision' => null, 'autoIncrement' => null],
@@ -31,9 +32,9 @@ class FormationsFixture extends TestFixture
         ],
         '_constraints' => [
             'primary' => ['type' => 'primary', 'columns' => ['id'], 'length' => []],
-            'formations_ibfk_1' => ['type' => 'foreign', 'columns' => ['frequency_id'], 'references' => ['frequency', 'id'], 'update' => 'cascade', 'delete' => 'cascade', 'length' => []],
-            'formations_ibfk_2' => ['type' => 'foreign', 'columns' => ['modality_id'], 'references' => ['modality', 'id'], 'update' => 'cascade', 'delete' => 'cascade', 'length' => []],
-            'formations_ibfk_3' => ['type' => 'foreign', 'columns' => ['category_id'], 'references' => ['category', 'id'], 'update' => 'cascade', 'delete' => 'cascade', 'length' => []],
+            'formations_ibfk_1' => ['type' => 'foreign', 'columns' => ['frequency_id'], 'references' => ['frequencies', 'id'], 'update' => 'cascade', 'delete' => 'cascade', 'length' => []],
+            'formations_ibfk_2' => ['type' => 'foreign', 'columns' => ['modality_id'], 'references' => ['modalities', 'id'], 'update' => 'cascade', 'delete' => 'cascade', 'length' => []],
+            'formations_ibfk_3' => ['type' => 'foreign', 'columns' => ['category_id'], 'references' => ['categories', 'id'], 'update' => 'cascade', 'delete' => 'cascade', 'length' => []],
         ],
         '_options' => [
             'engine' => 'InnoDB',
@@ -51,6 +52,7 @@ class FormationsFixture extends TestFixture
         $this->records = [
             [
                 'id' => 1,
+                'number' => 'Lorem ipsum dolor sit amet',
                 'title' => 'Lorem ipsum dolor sit amet',
                 'description' => 'Lorem ipsum dolor sit amet',
                 'category_id' => 1,

@@ -110,4 +110,11 @@ class PositionsFormationsController extends AppController
 
         return $this->redirect(['action' => 'index']);
     }
+    public function isAuthorized($user)
+    {
+        $action = $this->request->getParam('action');
+        if (in_array($action, ['index','display','add', 'edit', 'delete','view'])) {
+            return true;
+        }
+    }
 }

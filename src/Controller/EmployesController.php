@@ -20,7 +20,7 @@ class EmployesController extends AppController
     public function index()
     {
         $this->paginate = [
-            'contain' => ['Positions', 'Users', 'Buildings']
+            'contain' => ['Users', 'Positions', 'Buildings', 'Civilities', 'Languages']
         ];
         $employes = $this->paginate($this->Employes);
 
@@ -37,7 +37,7 @@ class EmployesController extends AppController
     public function view($id = null)
     {
         $employe = $this->Employes->get($id, [
-            'contain' => ['Positions', 'Users', 'Buildings']
+            'contain' => ['Users', 'Positions', 'Buildings', 'Civilities', 'Languages', 'Formations']
         ]);
 
         $this->set('employe', $employe);
@@ -53,8 +53,6 @@ class EmployesController extends AppController
         $employe = $this->Employes->newEntity();
         if ($this->request->is('post')) {
             $employe = $this->Employes->patchEntity($employe, $this->request->getData());
-
-            $employe->user_id = $this->Auth->user('id');
             if ($this->Employes->save($employe)) {
                 $this->Flash->success(__('The employe has been saved.'));
 
@@ -62,10 +60,13 @@ class EmployesController extends AppController
             }
             $this->Flash->error(__('The employe could not be saved. Please, try again.'));
         }
-        $buildings = $this->Employes->Buildings->find('list', ['limit' => 200]);
-        $positions = $this->Employes->Positions->find('list', ['limit' => 200]);
         $users = $this->Employes->Users->find('list', ['limit' => 200]);
-        $this->set(compact('employe', 'positions', 'users', 'buildings'));
+        $positions = $this->Employes->Positions->find('list', ['limit' => 200]);
+        $buildings = $this->Employes->Buildings->find('list', ['limit' => 200]);
+        $civilities = $this->Employes->Civilities->find('list', ['limit' => 200]);
+        $languages = $this->Employes->Languages->find('list', ['limit' => 200]);
+        $formations = $this->Employes->Formations->find('list', ['limit' => 200]);
+        $this->set(compact('employe', 'users', 'positions', 'buildings', 'civilities', 'languages', 'formations'));
     }
 
     /**
@@ -78,12 +79,10 @@ class EmployesController extends AppController
     public function edit($id = null)
     {
         $employe = $this->Employes->get($id, [
-            'contain' => []
+            'contain' => ['Formations']
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
-            $employe = $this->Employes->patchEntity($employe, $this->request->getData(),[
-                'accessibleFields' => ['user_id' => false]
-            ]);
+            $employe = $this->Employes->patchEntity($employe, $this->request->getData());
             if ($this->Employes->save($employe)) {
                 $this->Flash->success(__('The employe has been saved.'));
 
@@ -91,10 +90,13 @@ class EmployesController extends AppController
             }
             $this->Flash->error(__('The employe could not be saved. Please, try again.'));
         }
-        $buildings = $this->Employes->Buildings->find('list', ['limit' => 200]);
-        $positions = $this->Employes->Positions->find('list', ['limit' => 200]);
         $users = $this->Employes->Users->find('list', ['limit' => 200]);
-        $this->set(compact('employe', 'positions', 'users', 'buildings'));
+        $positions = $this->Employes->Positions->find('list', ['limit' => 200]);
+        $buildings = $this->Employes->Buildings->find('list', ['limit' => 200]);
+        $civilities = $this->Employes->Civilities->find('list', ['limit' => 200]);
+        $languages = $this->Employes->Languages->find('list', ['limit' => 200]);
+        $formations = $this->Employes->Formations->find('list', ['limit' => 200]);
+        $this->set(compact('employe', 'users', 'positions', 'buildings', 'civilities', 'languages', 'formations'));
     }
 
     /**
@@ -116,17 +118,10 @@ class EmployesController extends AppController
 
         return $this->redirect(['action' => 'index']);
     }
-
-    public function initialize()
-    {
-        parent::initialize();
-        $this->Auth->allow([]);
-    }
-
     public function isAuthorized($user)
     {
         $action = $this->request->getParam('action');
-        if (in_array($action, ['add','positions','delete','edit','view','index'])) {
+        if (in_array($action, ['index','display','add', 'edit', 'delete','view'])) {
             return true;
         }
     }

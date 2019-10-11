@@ -8,12 +8,6 @@
     <ul class="side-nav">
         <li class="heading"><?= __('Actions') ?></li>
         <li><?= $this->Html->link(__('New Formation'), ['action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Category'), ['controller' => 'Category', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Category'), ['controller' => 'Category', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Frequency'), ['controller' => 'Frequency', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Frequency'), ['controller' => 'Frequency', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Modality'), ['controller' => 'Modality', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Modality'), ['controller' => 'Modality', 'action' => 'add']) ?></li>
         <li><?= $this->Html->link(__('List Employes'), ['controller' => 'Employes', 'action' => 'index']) ?></li>
         <li><?= $this->Html->link(__('New Employe'), ['controller' => 'Employes', 'action' => 'add']) ?></li>
         <li><?= $this->Html->link(__('List Positions'), ['controller' => 'Positions', 'action' => 'index']) ?></li>
@@ -26,6 +20,7 @@
         <thead>
             <tr>
                 <th scope="col"><?= $this->Paginator->sort('id') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('number') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('title') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('description') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('category_id') ?></th>
@@ -41,11 +36,12 @@
             <?php foreach ($formations as $formation): ?>
             <tr>
                 <td><?= $this->Number->format($formation->id) ?></td>
+                <td><?= h($formation->number) ?></td>
                 <td><?= h($formation->title) ?></td>
                 <td><?= h($formation->description) ?></td>
-                <td><?= $formation->has('category') ? $this->Html->link($formation->category->name, ['controller' => 'Category', 'action' => 'view', $formation->category->id]) : '' ?></td>
-                <td><?= $formation->has('frequency') ? $this->Html->link($formation->frequency->id, ['controller' => 'Frequency', 'action' => 'view', $formation->frequency->id]) : '' ?></td>
-                <td><?= $formation->has('modality') ? $this->Html->link($formation->modality->id, ['controller' => 'Modality', 'action' => 'view', $formation->modality->id]) : '' ?></td>
+                <td><?= $this->Number->format($formation->category_id) ?></td>
+                <td><?= $this->Number->format($formation->frequency_id) ?></td>
+                <td><?= $this->Number->format($formation->modality_id) ?></td>
                 <td><?= $this->Number->format($formation->duration) ?></td>
                 <td><?= h($formation->created) ?></td>
                 <td><?= h($formation->modified) ?></td>
