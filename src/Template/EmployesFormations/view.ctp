@@ -33,6 +33,10 @@
             <td><?= $this->Number->format($employesFormation->id) ?></td>
         </tr>
         <tr>
+            <th scope="row"><?= __('File Id') ?></th>
+            <td><?= $this->Number->format($employesFormation->file_id) ?></td>
+        </tr>
+        <tr>
             <th scope="row"><?= __('Date Done') ?></th>
             <td><?= h($employesFormation->date_done) ?></td>
         </tr>

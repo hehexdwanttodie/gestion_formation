@@ -7,13 +7,13 @@ use Cake\ORM\Entity;
  * Formation Entity
  *
  * @property int $id
- * @property string $number
  * @property string $title
  * @property string $description
  * @property int $category_id
  * @property int $frequency_id
  * @property int $modality_id
- * @property int $duration
+ * @property int $reminder_id
+ * @property float $duration
  * @property \Cake\I18n\FrozenDate $created
  * @property \Cake\I18n\FrozenDate $modified
  *
@@ -35,12 +35,12 @@ class Formation extends Entity
      * @var array
      */
     protected $_accessible = [
-        'number' => true,
         'title' => true,
         'description' => true,
         'category_id' => true,
         'frequency_id' => true,
         'modality_id' => true,
+        'reminder_id' => true,
         'duration' => true,
         'created' => true,
         'modified' => true,

@@ -11,6 +11,7 @@ use Cake\Validation\Validator;
  *
  * @property \App\Model\Table\PositionsTable&\Cake\ORM\Association\BelongsTo $Positions
  * @property \App\Model\Table\FormationsTable&\Cake\ORM\Association\BelongsTo $Formations
+ * @property &\Cake\ORM\Association\BelongsTo $Status
  *
  * @method \App\Model\Entity\PositionsFormation get($primaryKey, $options = [])
  * @method \App\Model\Entity\PositionsFormation newEntity($data = null, array $options = [])
@@ -45,6 +46,25 @@ class PositionsFormationsTable extends Table
             'foreignKey' => 'formation_id',
             'joinType' => 'INNER'
         ]);
+        $this->belongsTo('Status', [
+            'foreignKey' => 'status_id',
+            'joinType' => 'INNER'
+        ]);
+    }
+
+    /**
+     * Default validation rules.
+     *
+     * @param \Cake\Validation\Validator $validator Validator instance.
+     * @return \Cake\Validation\Validator
+     */
+    public function validationDefault(Validator $validator)
+    {
+        $validator
+            ->integer('id')
+            ->allowEmptyString('id', null, 'create');
+
+        return $validator;
     }
 
     /**
@@ -58,6 +78,7 @@ class PositionsFormationsTable extends Table
     {
         $rules->add($rules->existsIn(['position_id'], 'Positions'));
         $rules->add($rules->existsIn(['formation_id'], 'Formations'));
+        $rules->add($rules->existsIn(['status_id'], 'Status'));
 
         return $rules;
     }

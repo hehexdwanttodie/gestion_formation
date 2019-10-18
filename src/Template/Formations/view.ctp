@@ -11,6 +11,12 @@
         <li><?= $this->Form->postLink(__('Delete Formation'), ['action' => 'delete', $formation->id], ['confirm' => __('Are you sure you want to delete # {0}?', $formation->id)]) ?> </li>
         <li><?= $this->Html->link(__('List Formations'), ['action' => 'index']) ?> </li>
         <li><?= $this->Html->link(__('New Formation'), ['action' => 'add']) ?> </li>
+        <li><?= $this->Html->link(__('List Categories'), ['controller' => 'Categories', 'action' => 'index']) ?> </li>
+        <li><?= $this->Html->link(__('New Category'), ['controller' => 'Categories', 'action' => 'add']) ?> </li>
+        <li><?= $this->Html->link(__('List Frequencies'), ['controller' => 'Frequencies', 'action' => 'index']) ?> </li>
+        <li><?= $this->Html->link(__('New Frequency'), ['controller' => 'Frequencies', 'action' => 'add']) ?> </li>
+        <li><?= $this->Html->link(__('List Modalities'), ['controller' => 'Modalities', 'action' => 'index']) ?> </li>
+        <li><?= $this->Html->link(__('New Modality'), ['controller' => 'Modalities', 'action' => 'add']) ?> </li>
         <li><?= $this->Html->link(__('List Employes'), ['controller' => 'Employes', 'action' => 'index']) ?> </li>
         <li><?= $this->Html->link(__('New Employe'), ['controller' => 'Employes', 'action' => 'add']) ?> </li>
         <li><?= $this->Html->link(__('List Positions'), ['controller' => 'Positions', 'action' => 'index']) ?> </li>
@@ -21,10 +27,6 @@
     <h3><?= h($formation->title) ?></h3>
     <table class="vertical-table">
         <tr>
-            <th scope="row"><?= __('Number') ?></th>
-            <td><?= h($formation->number) ?></td>
-        </tr>
-        <tr>
             <th scope="row"><?= __('Title') ?></th>
             <td><?= h($formation->title) ?></td>
         </tr>
@@ -33,20 +35,24 @@
             <td><?= h($formation->description) ?></td>
         </tr>
         <tr>
+            <th scope="row"><?= __('Category') ?></th>
+            <td><?= $formation->has('category') ? $this->Html->link($formation->category->name, ['controller' => 'Categories', 'action' => 'view', $formation->category->id]) : '' ?></td>
+        </tr>
+        <tr>
+            <th scope="row"><?= __('Frequency') ?></th>
+            <td><?= $formation->has('frequency') ? $this->Html->link($formation->frequency->id, ['controller' => 'Frequencies', 'action' => 'view', $formation->frequency->id]) : '' ?></td>
+        </tr>
+        <tr>
+            <th scope="row"><?= __('Modality') ?></th>
+            <td><?= $formation->has('modality') ? $this->Html->link($formation->modality->id, ['controller' => 'Modalities', 'action' => 'view', $formation->modality->id]) : '' ?></td>
+        </tr>
+        <tr>
             <th scope="row"><?= __('Id') ?></th>
             <td><?= $this->Number->format($formation->id) ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Category Id') ?></th>
-            <td><?= $this->Number->format($formation->category_id) ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('Frequency Id') ?></th>
-            <td><?= $this->Number->format($formation->frequency_id) ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('Modality Id') ?></th>
-            <td><?= $this->Number->format($formation->modality_id) ?></td>
+            <th scope="row"><?= __('Reminder Id') ?></th>
+            <td><?= $this->Number->format($formation->reminder_id) ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Duration') ?></th>
@@ -67,6 +73,7 @@
         <table cellpadding="0" cellspacing="0">
             <tr>
                 <th scope="col"><?= __('Id') ?></th>
+                <th scope="col"><?= __('Number') ?></th>
                 <th scope="col"><?= __('User Id') ?></th>
                 <th scope="col"><?= __('Position Id') ?></th>
                 <th scope="col"><?= __('Building Id') ?></th>
@@ -75,12 +82,14 @@
                 <th scope="col"><?= __('Email') ?></th>
                 <th scope="col"><?= __('Name') ?></th>
                 <th scope="col"><?= __('FirstName') ?></th>
+                <th scope="col"><?= __('Building') ?></th>
                 <th scope="col"><?= __('Actif') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
             <?php foreach ($formation->employes as $employes): ?>
             <tr>
                 <td><?= h($employes->id) ?></td>
+                <td><?= h($employes->number) ?></td>
                 <td><?= h($employes->user_id) ?></td>
                 <td><?= h($employes->position_id) ?></td>
                 <td><?= h($employes->building_id) ?></td>
@@ -89,6 +98,7 @@
                 <td><?= h($employes->email) ?></td>
                 <td><?= h($employes->name) ?></td>
                 <td><?= h($employes->firstName) ?></td>
+                <td><?= h($employes->building) ?></td>
                 <td><?= h($employes->actif) ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['controller' => 'Employes', 'action' => 'view', $employes->id]) ?>

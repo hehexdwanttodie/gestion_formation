@@ -41,8 +41,8 @@ class PositionsFixture extends TestFixture
                 'id' => 1,
                 'title' => 'Lorem ipsum dolor sit amet',
                 'description' => 'Lorem ipsum dolor sit amet',
-                'created' => '2019-10-11',
-                'modified' => '2019-10-11'
+                'created' => '2019-10-18',
+                'modified' => '2019-10-18'
             ],
         ];
         parent::init();

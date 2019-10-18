@@ -7,6 +7,7 @@ use Cake\ORM\Entity;
  * Employe Entity
  *
  * @property int $id
+ * @property string $number
  * @property int $user_id
  * @property int $position_id
  * @property int|null $building_id
@@ -17,9 +18,9 @@ use Cake\ORM\Entity;
  * @property string $firstName
  * @property bool $actif
  *
+ * @property \App\Model\Entity\Building $building
  * @property \App\Model\Entity\User $user
  * @property \App\Model\Entity\Position $position
- * @property \App\Model\Entity\Building $building
  * @property \App\Model\Entity\Civility $civility
  * @property \App\Model\Entity\Language $language
  * @property \App\Model\Entity\Formation[] $formations
@@ -36,6 +37,7 @@ class Employe extends Entity
      * @var array
      */
     protected $_accessible = [
+        'number' => true,
         'user_id' => true,
         'position_id' => true,
         'building_id' => true,
@@ -44,10 +46,10 @@ class Employe extends Entity
         'email' => true,
         'name' => true,
         'firstName' => true,
+        'building' => true,
         'actif' => true,
         'user' => true,
         'position' => true,
-        'building' => true,
         'civility' => true,
         'language' => true,
         'formations' => true

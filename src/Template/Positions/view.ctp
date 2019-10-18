@@ -47,12 +47,12 @@
         <table cellpadding="0" cellspacing="0">
             <tr>
                 <th scope="col"><?= __('Id') ?></th>
-                <th scope="col"><?= __('Number') ?></th>
                 <th scope="col"><?= __('Title') ?></th>
                 <th scope="col"><?= __('Description') ?></th>
                 <th scope="col"><?= __('Category Id') ?></th>
                 <th scope="col"><?= __('Frequency Id') ?></th>
                 <th scope="col"><?= __('Modality Id') ?></th>
+                <th scope="col"><?= __('Reminder Id') ?></th>
                 <th scope="col"><?= __('Duration') ?></th>
                 <th scope="col"><?= __('Created') ?></th>
                 <th scope="col"><?= __('Modified') ?></th>
@@ -61,12 +61,12 @@
             <?php foreach ($position->formations as $formations): ?>
             <tr>
                 <td><?= h($formations->id) ?></td>
-                <td><?= h($formations->number) ?></td>
                 <td><?= h($formations->title) ?></td>
                 <td><?= h($formations->description) ?></td>
                 <td><?= h($formations->category_id) ?></td>
                 <td><?= h($formations->frequency_id) ?></td>
                 <td><?= h($formations->modality_id) ?></td>
+                <td><?= h($formations->reminder_id) ?></td>
                 <td><?= h($formations->duration) ?></td>
                 <td><?= h($formations->created) ?></td>
                 <td><?= h($formations->modified) ?></td>
@@ -86,6 +86,7 @@
         <table cellpadding="0" cellspacing="0">
             <tr>
                 <th scope="col"><?= __('Id') ?></th>
+                <th scope="col"><?= __('Number') ?></th>
                 <th scope="col"><?= __('User Id') ?></th>
                 <th scope="col"><?= __('Position Id') ?></th>
                 <th scope="col"><?= __('Building Id') ?></th>
@@ -94,12 +95,14 @@
                 <th scope="col"><?= __('Email') ?></th>
                 <th scope="col"><?= __('Name') ?></th>
                 <th scope="col"><?= __('FirstName') ?></th>
+                <th scope="col"><?= __('Building') ?></th>
                 <th scope="col"><?= __('Actif') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
             <?php foreach ($position->employes as $employes): ?>
             <tr>
                 <td><?= h($employes->id) ?></td>
+                <td><?= h($employes->number) ?></td>
                 <td><?= h($employes->user_id) ?></td>
                 <td><?= h($employes->position_id) ?></td>
                 <td><?= h($employes->building_id) ?></td>
@@ -108,6 +111,7 @@
                 <td><?= h($employes->email) ?></td>
                 <td><?= h($employes->name) ?></td>
                 <td><?= h($employes->firstName) ?></td>
+                <td><?= h($employes->building) ?></td>
                 <td><?= h($employes->actif) ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['controller' => 'Employes', 'action' => 'view', $employes->id]) ?>

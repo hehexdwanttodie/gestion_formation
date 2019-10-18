@@ -24,9 +24,9 @@ class FormationsTableTest extends TestCase
      */
     public $fixtures = [
         'app.Formations',
-        'app.Category',
-        'app.Frequency',
-        'app.Modality',
+        'app.Categories',
+        'app.Frequencies',
+        'app.Modalities',
         'app.Employes',
         'app.Positions'
     ];

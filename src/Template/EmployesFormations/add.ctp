@@ -19,9 +19,10 @@
     <fieldset>
         <legend><?= __('Add Employes Formation') ?></legend>
         <?php
-            echo $this->Form->control('date_done');
             echo $this->Form->control('employe_id', ['options' => $employes]);
             echo $this->Form->control('formation_id', ['options' => $formations]);
+            echo $this->Form->control('file_id');
+            echo $this->Form->control('date_done');
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>

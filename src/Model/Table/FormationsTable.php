@@ -9,9 +9,10 @@ use Cake\Validation\Validator;
 /**
  * Formations Model
  *
- * @property &\Cake\ORM\Association\BelongsTo $Categories
- * @property &\Cake\ORM\Association\BelongsTo $Frequencies
- * @property &\Cake\ORM\Association\BelongsTo $Modalities
+ * @property \App\Model\Table\CategoriesTable&\Cake\ORM\Association\BelongsTo $Categories
+ * @property \App\Model\Table\FrequenciesTable&\Cake\ORM\Association\BelongsTo $Frequencies
+ * @property \App\Model\Table\ModalitiesTable&\Cake\ORM\Association\BelongsTo $Modalities
+ * @property &\Cake\ORM\Association\BelongsTo $Reminders
  * @property \App\Model\Table\EmployesTable&\Cake\ORM\Association\BelongsToMany $Employes
  * @property \App\Model\Table\PositionsTable&\Cake\ORM\Association\BelongsToMany $Positions
  *
@@ -56,6 +57,10 @@ class FormationsTable extends Table
             'foreignKey' => 'modality_id',
             'joinType' => 'INNER'
         ]);
+        $this->belongsTo('Reminders', [
+            'foreignKey' => 'reminder_id',
+            'joinType' => 'INNER'
+        ]);
         $this->belongsToMany('Employes', [
             'foreignKey' => 'formation_id',
             'targetForeignKey' => 'employe_id',
@@ -81,12 +86,6 @@ class FormationsTable extends Table
             ->allowEmptyString('id', null, 'create');
 
         $validator
-            ->scalar('number')
-            ->maxLength('number', 255)
-            ->requirePresence('number', 'create')
-            ->notEmptyString('number');
-
-        $validator
             ->scalar('title')
             ->maxLength('title', 255)
             ->requirePresence('title', 'create')
@@ -99,7 +98,7 @@ class FormationsTable extends Table
             ->notEmptyString('description');
 
         $validator
-            ->integer('duration')
+            ->decimal('duration')
             ->requirePresence('duration', 'create')
             ->notEmptyString('duration');
 
@@ -118,6 +117,7 @@ class FormationsTable extends Table
         $rules->add($rules->existsIn(['category_id'], 'Categories'));
         $rules->add($rules->existsIn(['frequency_id'], 'Frequencies'));
         $rules->add($rules->existsIn(['modality_id'], 'Modalities'));
+        $rules->add($rules->existsIn(['reminder_id'], 'Reminders'));
 
         return $rules;
     }

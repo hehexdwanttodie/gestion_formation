@@ -6,8 +6,10 @@ use Cake\ORM\Entity;
 /**
  * PositionsFormation Entity
  *
+ * @property int $id
  * @property int $position_id
  * @property int $formation_id
+ * @property int $status_id
  *
  * @property \App\Model\Entity\Position $position
  * @property \App\Model\Entity\Formation $formation
@@ -24,6 +26,9 @@ class PositionsFormation extends Entity
      * @var array
      */
     protected $_accessible = [
+        'position_id' => true,
+        'formation_id' => true,
+        'status_id' => true,
         'position' => true,
         'formation' => true
     ];

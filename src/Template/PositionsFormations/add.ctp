@@ -19,6 +19,8 @@
     <fieldset>
         <legend><?= __('Add Positions Formation') ?></legend>
         <?php
+            echo $this->Form->control('id');
+            echo $this->Form->control('status_id');
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>

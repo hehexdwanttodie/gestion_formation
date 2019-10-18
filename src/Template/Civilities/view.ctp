@@ -33,6 +33,7 @@
         <table cellpadding="0" cellspacing="0">
             <tr>
                 <th scope="col"><?= __('Id') ?></th>
+                <th scope="col"><?= __('Number') ?></th>
                 <th scope="col"><?= __('User Id') ?></th>
                 <th scope="col"><?= __('Position Id') ?></th>
                 <th scope="col"><?= __('Building Id') ?></th>
@@ -48,6 +49,7 @@
             <?php foreach ($civility->employes as $employes): ?>
             <tr>
                 <td><?= h($employes->id) ?></td>
+                <td><?= h($employes->number) ?></td>
                 <td><?= h($employes->user_id) ?></td>
                 <td><?= h($employes->position_id) ?></td>
                 <td><?= h($employes->building_id) ?></td>

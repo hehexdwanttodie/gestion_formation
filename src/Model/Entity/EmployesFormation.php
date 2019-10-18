@@ -7,9 +7,10 @@ use Cake\ORM\Entity;
  * EmployesFormation Entity
  *
  * @property int $id
- * @property \Cake\I18n\FrozenDate $date_done
  * @property int $employe_id
  * @property int $formation_id
+ * @property int $file_id
+ * @property \Cake\I18n\FrozenTime $date_done
  *
  * @property \App\Model\Entity\Employe $employe
  * @property \App\Model\Entity\Formation $formation
@@ -26,9 +27,10 @@ class EmployesFormation extends Entity
      * @var array
      */
     protected $_accessible = [
-        'date_done' => true,
         'employe_id' => true,
         'formation_id' => true,
+        'file_id' => true,
+        'date_done' => true,
         'employe' => true,
         'formation' => true
     ];

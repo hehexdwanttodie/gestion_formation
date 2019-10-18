@@ -38,6 +38,7 @@
                 <th scope="col"><?= __('Category Id') ?></th>
                 <th scope="col"><?= __('Frequency Id') ?></th>
                 <th scope="col"><?= __('Modality Id') ?></th>
+                <th scope="col"><?= __('Reminder Id') ?></th>
                 <th scope="col"><?= __('Duration') ?></th>
                 <th scope="col"><?= __('Created') ?></th>
                 <th scope="col"><?= __('Modified') ?></th>
@@ -51,6 +52,7 @@
                 <td><?= h($formations->category_id) ?></td>
                 <td><?= h($formations->frequency_id) ?></td>
                 <td><?= h($formations->modality_id) ?></td>
+                <td><?= h($formations->reminder_id) ?></td>
                 <td><?= h($formations->duration) ?></td>
                 <td><?= h($formations->created) ?></td>
                 <td><?= h($formations->modified) ?></td>

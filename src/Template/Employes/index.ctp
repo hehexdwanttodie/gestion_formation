@@ -28,6 +28,7 @@
         <thead>
             <tr>
                 <th scope="col"><?= $this->Paginator->sort('id') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('number') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('user_id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('position_id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('building_id') ?></th>
@@ -36,6 +37,7 @@
                 <th scope="col"><?= $this->Paginator->sort('email') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('name') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('firstName') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('building') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('actif') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
@@ -44,6 +46,7 @@
             <?php foreach ($employes as $employe): ?>
             <tr>
                 <td><?= $this->Number->format($employe->id) ?></td>
+                <td><?= h($employe->number) ?></td>
                 <td><?= $employe->has('user') ? $this->Html->link($employe->user->id, ['controller' => 'Users', 'action' => 'view', $employe->user->id]) : '' ?></td>
                 <td><?= $employe->has('position') ? $this->Html->link($employe->position->title, ['controller' => 'Positions', 'action' => 'view', $employe->position->id]) : '' ?></td>
                 <td><?= $employe->has('building') ? $this->Html->link($employe->building->id, ['controller' => 'Buildings', 'action' => 'view', $employe->building->id]) : '' ?></td>
@@ -52,6 +55,7 @@
                 <td><?= h($employe->email) ?></td>
                 <td><?= h($employe->name) ?></td>
                 <td><?= h($employe->firstName) ?></td>
+                <td><?= h($employe->building) ?></td>
                 <td><?= h($employe->actif) ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['action' => 'view', $employe->id]) ?>

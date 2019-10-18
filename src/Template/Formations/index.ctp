@@ -8,6 +8,12 @@
     <ul class="side-nav">
         <li class="heading"><?= __('Actions') ?></li>
         <li><?= $this->Html->link(__('New Formation'), ['action' => 'add']) ?></li>
+        <li><?= $this->Html->link(__('List Categories'), ['controller' => 'Categories', 'action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('New Category'), ['controller' => 'Categories', 'action' => 'add']) ?></li>
+        <li><?= $this->Html->link(__('List Frequencies'), ['controller' => 'Frequencies', 'action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('New Frequency'), ['controller' => 'Frequencies', 'action' => 'add']) ?></li>
+        <li><?= $this->Html->link(__('List Modalities'), ['controller' => 'Modalities', 'action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('New Modality'), ['controller' => 'Modalities', 'action' => 'add']) ?></li>
         <li><?= $this->Html->link(__('List Employes'), ['controller' => 'Employes', 'action' => 'index']) ?></li>
         <li><?= $this->Html->link(__('New Employe'), ['controller' => 'Employes', 'action' => 'add']) ?></li>
         <li><?= $this->Html->link(__('List Positions'), ['controller' => 'Positions', 'action' => 'index']) ?></li>
@@ -20,12 +26,12 @@
         <thead>
             <tr>
                 <th scope="col"><?= $this->Paginator->sort('id') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('number') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('title') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('description') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('category_id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('frequency_id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('modality_id') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('reminder_id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('duration') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('created') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('modified') ?></th>
@@ -36,12 +42,12 @@
             <?php foreach ($formations as $formation): ?>
             <tr>
                 <td><?= $this->Number->format($formation->id) ?></td>
-                <td><?= h($formation->number) ?></td>
                 <td><?= h($formation->title) ?></td>
                 <td><?= h($formation->description) ?></td>
-                <td><?= $this->Number->format($formation->category_id) ?></td>
-                <td><?= $this->Number->format($formation->frequency_id) ?></td>
-                <td><?= $this->Number->format($formation->modality_id) ?></td>
+                <td><?= $formation->has('category') ? $this->Html->link($formation->category->name, ['controller' => 'Categories', 'action' => 'view', $formation->category->id]) : '' ?></td>
+                <td><?= $formation->has('frequency') ? $this->Html->link($formation->frequency->id, ['controller' => 'Frequencies', 'action' => 'view', $formation->frequency->id]) : '' ?></td>
+                <td><?= $formation->has('modality') ? $this->Html->link($formation->modality->id, ['controller' => 'Modalities', 'action' => 'view', $formation->modality->id]) : '' ?></td>
+                <td><?= $this->Number->format($formation->reminder_id) ?></td>
                 <td><?= $this->Number->format($formation->duration) ?></td>
                 <td><?= h($formation->created) ?></td>
                 <td><?= h($formation->modified) ?></td>

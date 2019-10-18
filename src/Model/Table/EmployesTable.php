@@ -80,6 +80,12 @@ class EmployesTable extends Table
             ->allowEmptyString('id', null, 'create');
 
         $validator
+            ->scalar('number')
+            ->maxLength('number', 255)
+            ->requirePresence('number', 'create')
+            ->notEmptyString('number');
+
+        $validator
             ->email('email')
             ->requirePresence('email', 'create')
             ->notEmptyString('email');
@@ -95,6 +101,12 @@ class EmployesTable extends Table
             ->maxLength('firstName', 255)
             ->requirePresence('firstName', 'create')
             ->notEmptyString('firstName');
+
+        $validator
+            ->scalar('building')
+            ->maxLength('building', 255)
+            ->requirePresence('building', 'create')
+            ->notEmptyString('building');
 
         $validator
             ->boolean('actif')

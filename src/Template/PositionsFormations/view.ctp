@@ -28,5 +28,13 @@
             <th scope="row"><?= __('Formation') ?></th>
             <td><?= $positionsFormation->has('formation') ? $this->Html->link($positionsFormation->formation->title, ['controller' => 'Formations', 'action' => 'view', $positionsFormation->formation->id]) : '' ?></td>
         </tr>
+        <tr>
+            <th scope="row"><?= __('Id') ?></th>
+            <td><?= $this->Number->format($positionsFormation->id) ?></td>
+        </tr>
+        <tr>
+            <th scope="row"><?= __('Status Id') ?></th>
+            <td><?= $this->Number->format($positionsFormation->status_id) ?></td>
+        </tr>
     </table>
 </div>

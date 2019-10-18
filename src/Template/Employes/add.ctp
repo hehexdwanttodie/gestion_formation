@@ -27,6 +27,7 @@
     <fieldset>
         <legend><?= __('Add Employe') ?></legend>
         <?php
+            echo $this->Form->control('number');
             echo $this->Form->control('user_id', ['options' => $users]);
             echo $this->Form->control('position_id', ['options' => $positions]);
             echo $this->Form->control('building_id', ['options' => $buildings, 'empty' => true]);
@@ -35,6 +36,7 @@
             echo $this->Form->control('email');
             echo $this->Form->control('name');
             echo $this->Form->control('firstName');
+            echo $this->Form->control('building');
             echo $this->Form->control('actif');
             echo $this->Form->control('formations._ids', ['options' => $formations]);
         ?>

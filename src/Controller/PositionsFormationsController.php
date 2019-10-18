@@ -113,7 +113,7 @@ class PositionsFormationsController extends AppController
     public function isAuthorized($user)
     {
         $action = $this->request->getParam('action');
-        if (in_array($action, ['index','display','add', 'edit', 'delete','view'])) {
+        if (in_array($action, ['index','add', 'edit', 'delete','view'])) {
             return true;
         }
     }

@@ -19,16 +19,20 @@
     <table cellpadding="0" cellspacing="0">
         <thead>
             <tr>
+                <th scope="col"><?= $this->Paginator->sort('id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('position_id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('formation_id') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('status_id') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
         </thead>
         <tbody>
             <?php foreach ($positionsFormations as $positionsFormation): ?>
             <tr>
+                <td><?= $this->Number->format($positionsFormation->id) ?></td>
                 <td><?= $positionsFormation->has('position') ? $this->Html->link($positionsFormation->position->title, ['controller' => 'Positions', 'action' => 'view', $positionsFormation->position->id]) : '' ?></td>
                 <td><?= $positionsFormation->has('formation') ? $this->Html->link($positionsFormation->formation->title, ['controller' => 'Formations', 'action' => 'view', $positionsFormation->formation->id]) : '' ?></td>
+                <td><?= $this->Number->format($positionsFormation->status_id) ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['action' => 'view', $positionsFormation->position_id]) ?>
                     <?= $this->Html->link(__('Edit'), ['action' => 'edit', $positionsFormation->position_id]) ?>

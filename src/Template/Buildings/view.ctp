@@ -33,6 +33,7 @@
         <table cellpadding="0" cellspacing="0">
             <tr>
                 <th scope="col"><?= __('Id') ?></th>
+                <th scope="col"><?= __('Number') ?></th>
                 <th scope="col"><?= __('User Id') ?></th>
                 <th scope="col"><?= __('Position Id') ?></th>
                 <th scope="col"><?= __('Building Id') ?></th>
@@ -41,12 +42,14 @@
                 <th scope="col"><?= __('Email') ?></th>
                 <th scope="col"><?= __('Name') ?></th>
                 <th scope="col"><?= __('FirstName') ?></th>
+                <th scope="col"><?= __('Building') ?></th>
                 <th scope="col"><?= __('Actif') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
             <?php foreach ($building->employes as $employes): ?>
             <tr>
                 <td><?= h($employes->id) ?></td>
+                <td><?= h($employes->number) ?></td>
                 <td><?= h($employes->user_id) ?></td>
                 <td><?= h($employes->position_id) ?></td>
                 <td><?= h($employes->building_id) ?></td>
@@ -55,6 +58,7 @@
                 <td><?= h($employes->email) ?></td>
                 <td><?= h($employes->name) ?></td>
                 <td><?= h($employes->firstName) ?></td>
+                <td><?= h($employes->building) ?></td>
                 <td><?= h($employes->actif) ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['controller' => 'Employes', 'action' => 'view', $employes->id]) ?>
