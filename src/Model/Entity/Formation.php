@@ -48,6 +48,7 @@ class Formation extends Entity
         'frequency' => true,
         'modality' => true,
         'employes' => true,
-        'positions' => true
+        'positions' => true,
+        'files' => true
     ];
 }
