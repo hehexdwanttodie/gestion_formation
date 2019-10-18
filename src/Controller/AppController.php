@@ -29,6 +29,7 @@ class AppController extends Controller
 {
 
     /**
+     * TEst
      * Initialization hook method.
      *
      * Use this method to add common initialization code like loading components.
