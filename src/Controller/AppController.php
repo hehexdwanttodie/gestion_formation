@@ -22,14 +22,13 @@ use Cake\Event\Event;
  *
  * Add your application-wide methods in the class below, your controllers
  * will inherit them.
- *
+ *k
  * @link https://book.cakephp.org/3.0/en/controllers.html#the-app-controller
  */
 class AppController extends Controller
 {
 
     /**
-     * TEst
      * Initialization hook method.
      *
      * Use this method to add common initialization code like loading components.
