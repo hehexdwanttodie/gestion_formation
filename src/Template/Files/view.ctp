@@ -42,6 +42,10 @@
             <th scope="row"><?= __('Status') ?></th>
             <td><?= $file->status ? __('Yes') : __('No'); ?></td>
         </tr>
+        <tr>
+            <th scope="row"><?= __('Status') ?></th>
+            <td><?= $file->status ? __('Yes') : __('No'); ?></td>
+        </tr>
     </table>
     <div class="related">
         <h4><?= __('Related Employes Formations') ?></h4>

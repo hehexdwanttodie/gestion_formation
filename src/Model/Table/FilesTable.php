@@ -57,17 +57,17 @@ class FilesTable extends Table
             ->integer('id')
             ->allowEmptyString('id', null, 'create');
 
-        $validator
-            ->scalar('name')
-            ->maxLength('name', 255)
-            ->requirePresence('name', 'create')
-            ->notEmptyString('name');
+       // $validator
+       //     ->scalar('name')
+       //     ->maxLength('name', 255)
+       //     ->requirePresence('name', 'create')
+       //     ->notEmptyString('name');
 
-        $validator
-            ->scalar('path')
-            ->maxLength('path', 255)
-            ->requirePresence('path', 'create')
-            ->notEmptyString('path');
+        //$validator
+         //   ->scalar('path')
+          //  ->maxLength('path', 255)
+          //  ->requirePresence('path', 'create')
+          //  ->notEmptyString('path');
 
         $validator
             ->dateTime('modfied')

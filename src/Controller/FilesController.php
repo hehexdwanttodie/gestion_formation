@@ -55,13 +55,19 @@ class FilesController extends AppController
                 $uploadFile = $uploadPath . $fileName;
                 if (move_uploaded_file($this->request->data['name']['tmp_name'], 'pdf/' . $uploadFile)) {
                     $file = $this->Files->patchEntity($file, $this->request->getData());
+
                     $file->name = $fileName;
-                    $file->path = $uploadPath;
-                    if ($this->Files->save($file)) {
-                        $this->Flash->success(__('The file has been saved.'));
-                    } else {
-                        $this->Flash->error(__('Unable to upload file, please try again.'));
+                    if (strpos($fileName, '.pdf') === false) {
+                        $this->Flash->error(__('Please only upload a PDF file!'));
+                    }else{
+                        $file->path = $uploadPath;
+                        if ($this->Files->save($file)) {
+                            $this->Flash->success(__('The file has been saved.'));
+                        } else {
+                            $this->Flash->error(__('Unable to upload file, please try again.'));
+                        }
                     }
+
                 } else {
                     $this->Flash->error(__('Unable to save file, please try again.'));
                 }
@@ -94,6 +100,9 @@ class FilesController extends AppController
             $this->Flash->error(__('The file could not be saved. Please, try again.'));
         }
         $this->set(compact('file'));
+
+
+
     }
 
     /**
@@ -115,10 +124,23 @@ class FilesController extends AppController
 
         return $this->redirect(['action' => 'index']);
     }
+
+    public function download($id = null){
+        $file = $this->Files->get($id);
+        $filename = $file->get("name");
+
+        $path = WWW_ROOT.'pdf'.DS. 'Files'. DS. $filename;
+        $this->response->file($path, array(
+            'download' => true,
+            'name' => $filename,
+        ));
+        return $this->response;
+    }
+
     public function isAuthorized($user)
     {
         $action = $this->request->getParam('action');
-        if (in_array($action, ['index','add', 'edit', 'delete','view'])) {
+        if (in_array($action, ['index','add', 'edit', 'delete','view', 'download'])) {
             return true;
         }
     }

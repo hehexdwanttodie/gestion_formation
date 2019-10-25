@@ -32,14 +32,16 @@
             <tr>
                 <td><?= $this->Number->format($file->id) ?></td>
                 <td><?= h($file->name) ?></td>
-                <td><?php
-                echo $this->Html->image($file->path . $file->name, [
-                                        "alt" => $file->name,
-                                        "width" => "220px",
-                                        "height" => "150px",
-                                        'url' => ['action' => 'view', $file->id]
-                                    ]);
-                ?></td>
+                <td>
+                    <?php
+                        echo $this->Html->image($file->path . $file->name, [
+                            "alt" => $file->name,
+                            "width" => "220px",
+                            "height" => "150px",
+                            'url' => ['action' => 'view', $file->id]
+                        ]);
+                    ?>
+                </td>
                 <!--<td><?= h($file->path) ?></td>-->
                 <td><?= h($file->created) ?></td>
                 <td><?= h($file->modfied) ?></td>
@@ -47,6 +49,7 @@
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['action' => 'view', $file->id]) ?>
                     <?= $this->Html->link(__('Edit'), ['action' => 'edit', $file->id]) ?>
+                    <?= $this->Html->link(__('Download'), ['action' => 'download', $file->id]) ?>
                     <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $file->id], ['confirm' => __('Are you sure you want to delete # {0}?', $file->id)]) ?>
                 </td>
             </tr>
