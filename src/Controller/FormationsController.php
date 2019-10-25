@@ -20,7 +20,7 @@ class FormationsController extends AppController
     public function index()
     {
         $this->paginate = [
-            'contain' => ['Categories', 'Frequencies', 'Modalities']
+            'contain' => ['Categories', 'Frequencies', 'Modalities', 'Reminders']
         ];
         $formations = $this->paginate($this->Formations);
 
@@ -37,7 +37,7 @@ class FormationsController extends AppController
     public function view($id = null)
     {
         $formation = $this->Formations->get($id, [
-            'contain' => ['Categories', 'Frequencies', 'Modalities', 'Employes', 'Positions']
+            'contain' => ['Categories', 'Frequencies', 'Modalities', 'Reminders', 'Employes', 'Positions']
         ]);
 
         $this->set('formation', $formation);
@@ -63,9 +63,10 @@ class FormationsController extends AppController
         $categories = $this->Formations->Categories->find('list', ['limit' => 200]);
         $frequencies = $this->Formations->Frequencies->find('list', ['limit' => 200]);
         $modalities = $this->Formations->Modalities->find('list', ['limit' => 200]);
+        $reminders = $this->Formations->Reminders->find('list', ['limit' => 200]);
         $employes = $this->Formations->Employes->find('list', ['limit' => 200]);
         $positions = $this->Formations->Positions->find('list', ['limit' => 200]);
-        $this->set(compact('formation', 'categories', 'frequencies', 'modalities', 'employes', 'positions'));
+        $this->set(compact('formation', 'categories', 'frequencies', 'modalities', 'reminders', 'employes', 'positions'));
     }
 
     /**
@@ -92,9 +93,10 @@ class FormationsController extends AppController
         $categories = $this->Formations->Categories->find('list', ['limit' => 200]);
         $frequencies = $this->Formations->Frequencies->find('list', ['limit' => 200]);
         $modalities = $this->Formations->Modalities->find('list', ['limit' => 200]);
+        $reminders = $this->Formations->Reminders->find('list', ['limit' => 200]);
         $employes = $this->Formations->Employes->find('list', ['limit' => 200]);
         $positions = $this->Formations->Positions->find('list', ['limit' => 200]);
-        $this->set(compact('formation', 'categories', 'frequencies', 'modalities', 'employes', 'positions'));
+        $this->set(compact('formation', 'categories', 'frequencies', 'modalities', 'reminders', 'employes', 'positions'));
     }
 
     /**

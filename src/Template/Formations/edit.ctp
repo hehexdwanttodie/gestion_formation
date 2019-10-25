@@ -20,6 +20,8 @@
         <li><?= $this->Html->link(__('New Frequency'), ['controller' => 'Frequencies', 'action' => 'add']) ?></li>
         <li><?= $this->Html->link(__('List Modalities'), ['controller' => 'Modalities', 'action' => 'index']) ?></li>
         <li><?= $this->Html->link(__('New Modality'), ['controller' => 'Modalities', 'action' => 'add']) ?></li>
+        <li><?= $this->Html->link(__('List Reminders'), ['controller' => 'Reminders', 'action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('New Reminder'), ['controller' => 'Reminders', 'action' => 'add']) ?></li>
         <li><?= $this->Html->link(__('List Employes'), ['controller' => 'Employes', 'action' => 'index']) ?></li>
         <li><?= $this->Html->link(__('New Employe'), ['controller' => 'Employes', 'action' => 'add']) ?></li>
         <li><?= $this->Html->link(__('List Positions'), ['controller' => 'Positions', 'action' => 'index']) ?></li>
@@ -36,7 +38,7 @@
             echo $this->Form->control('category_id', ['options' => $categories]);
             echo $this->Form->control('frequency_id', ['options' => $frequencies]);
             echo $this->Form->control('modality_id', ['options' => $modalities]);
-            echo $this->Form->control('reminder_id');
+            echo $this->Form->control('reminder_id', ['options' => $reminders]);
             echo $this->Form->control('duration');
             echo $this->Form->control('employes._ids', ['options' => $employes]);
             echo $this->Form->control('positions._ids', ['options' => $positions]);

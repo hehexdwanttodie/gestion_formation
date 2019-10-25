@@ -33,7 +33,7 @@ class BuildingsTable extends Table
         parent::initialize($config);
 
         $this->setTable('buildings');
-        $this->setDisplayField('id');
+        $this->setDisplayField('adress');
         $this->setPrimaryKey('id');
 
         $this->hasMany('Employes', [

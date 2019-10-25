@@ -42,6 +42,15 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
         </ul>
         <div class="top-bar-section">
             <ul class="right">
+                <li>
+                    <?= $this->Html->link('Employés', ['controller' => 'employes', 'action' => 'index/']); ?>
+                </li>
+                <li>
+                    <?= $this->Html->link('Formations', ['controller' => 'employes', 'action' => 'index/']); ?>
+                </li>
+                <li>
+                    <?= $this->Html->link('Postes', ['controller' => 'employes', 'action' => 'index/']); ?>
+                </li>
                 <li><?php
                     $loguser = $this->request->session()->read('Auth.User');
                     if ($loguser) {

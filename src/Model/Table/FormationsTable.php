@@ -12,7 +12,7 @@ use Cake\Validation\Validator;
  * @property \App\Model\Table\CategoriesTable&\Cake\ORM\Association\BelongsTo $Categories
  * @property \App\Model\Table\FrequenciesTable&\Cake\ORM\Association\BelongsTo $Frequencies
  * @property \App\Model\Table\ModalitiesTable&\Cake\ORM\Association\BelongsTo $Modalities
- * @property &\Cake\ORM\Association\BelongsTo $Reminders
+ * @property \App\Model\Table\RemindersTable&\Cake\ORM\Association\BelongsTo $Reminders
  * @property \App\Model\Table\EmployesTable&\Cake\ORM\Association\BelongsToMany $Employes
  * @property \App\Model\Table\PositionsTable&\Cake\ORM\Association\BelongsToMany $Positions
  *

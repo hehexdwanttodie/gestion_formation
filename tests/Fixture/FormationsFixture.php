@@ -22,7 +22,7 @@ class FormationsFixture extends TestFixture
         'frequency_id' => ['type' => 'integer', 'length' => 11, 'unsigned' => false, 'null' => false, 'default' => null, 'comment' => '', 'precision' => null, 'autoIncrement' => null],
         'modality_id' => ['type' => 'integer', 'length' => 11, 'unsigned' => false, 'null' => false, 'default' => null, 'comment' => '', 'precision' => null, 'autoIncrement' => null],
         'reminder_id' => ['type' => 'integer', 'length' => 11, 'unsigned' => false, 'null' => false, 'default' => null, 'comment' => '', 'precision' => null, 'autoIncrement' => null],
-        'duration' => ['type' => 'decimal', 'length' => 9, 'precision' => 1, 'unsigned' => false, 'null' => false, 'default' => null, 'comment' => ''],
+        'duration' => ['type' => 'decimal', 'length' => 9, 'precision' => 2, 'unsigned' => false, 'null' => false, 'default' => null, 'comment' => ''],
         'created' => ['type' => 'date', 'length' => null, 'null' => false, 'default' => null, 'comment' => '', 'precision' => null],
         'modified' => ['type' => 'date', 'length' => null, 'null' => false, 'default' => null, 'comment' => '', 'precision' => null],
         '_indexes' => [
@@ -61,8 +61,8 @@ class FormationsFixture extends TestFixture
                 'modality_id' => 1,
                 'reminder_id' => 1,
                 'duration' => 1.5,
-                'created' => '2019-10-18',
-                'modified' => '2019-10-18'
+                'created' => '2019-10-25',
+                'modified' => '2019-10-25'
             ],
         ];
         parent::init();

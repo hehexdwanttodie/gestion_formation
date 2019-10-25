@@ -27,6 +27,7 @@ class FormationsTableTest extends TestCase
         'app.Categories',
         'app.Frequencies',
         'app.Modalities',
+        'app.Reminders',
         'app.Employes',
         'app.Positions'
     ];

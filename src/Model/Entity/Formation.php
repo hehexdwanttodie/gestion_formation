@@ -20,6 +20,7 @@ use Cake\ORM\Entity;
  * @property \App\Model\Entity\Category $category
  * @property \App\Model\Entity\Frequency $frequency
  * @property \App\Model\Entity\Modality $modality
+ * @property \App\Model\Entity\Reminder $reminder
  * @property \App\Model\Entity\Employe[] $employes
  * @property \App\Model\Entity\Position[] $positions
  */
@@ -47,8 +48,8 @@ class Formation extends Entity
         'category' => true,
         'frequency' => true,
         'modality' => true,
+        'reminder' => true,
         'employes' => true,
-        'positions' => true,
-        'files' => true
+        'positions' => true
     ];
 }

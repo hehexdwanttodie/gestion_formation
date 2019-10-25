@@ -33,7 +33,7 @@ class ModalitiesTable extends Table
         parent::initialize($config);
 
         $this->setTable('modalities');
-        $this->setDisplayField('id');
+        $this->setDisplayField('type');
         $this->setPrimaryKey('id');
 
         $this->hasMany('Formations', [
