@@ -65,10 +65,6 @@
             <td><?= h($employe->firstName) ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Building') ?></th>
-            <td><?= h($employe->building) ?></td>
-        </tr>
-        <tr>
             <th scope="row"><?= __('Id') ?></th>
             <td><?= $this->Number->format($employe->id) ?></td>
         </tr>

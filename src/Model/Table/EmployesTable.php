@@ -103,12 +103,6 @@ class EmployesTable extends Table
             ->notEmptyString('firstName');
 
         $validator
-            ->scalar('building')
-            ->maxLength('building', 255)
-            ->requirePresence('building', 'create')
-            ->notEmptyString('building');
-
-        $validator
             ->boolean('actif')
             ->requirePresence('actif', 'create')
             ->notEmptyString('actif');

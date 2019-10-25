@@ -118,6 +118,7 @@ class EmployesController extends AppController
 
         return $this->redirect(['action' => 'index']);
     }
+
     public function isAuthorized($user)
     {
         $action = $this->request->getParam('action');

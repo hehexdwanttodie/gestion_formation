@@ -37,7 +37,6 @@
                 <th scope="col"><?= $this->Paginator->sort('email') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('name') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('firstName') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('building') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('actif') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
@@ -55,7 +54,6 @@
                 <td><?= h($employe->email) ?></td>
                 <td><?= h($employe->name) ?></td>
                 <td><?= h($employe->firstName) ?></td>
-                <td><?= h($employe->building) ?></td>
                 <td><?= h($employe->actif) ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['action' => 'view', $employe->id]) ?>
