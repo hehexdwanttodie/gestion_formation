@@ -36,7 +36,6 @@
             echo $this->Form->control('email');
             echo $this->Form->control('name');
             echo $this->Form->control('firstName');
-            echo $this->Form->control('building');
             echo $this->Form->control('actif');
             echo $this->Form->control('formations._ids', ['options' => $formations]);
         ?>
