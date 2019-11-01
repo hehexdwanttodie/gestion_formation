@@ -12,6 +12,8 @@
         <li><?= $this->Html->link(__('New Position'), ['controller' => 'Positions', 'action' => 'add']) ?></li>
         <li><?= $this->Html->link(__('List Formations'), ['controller' => 'Formations', 'action' => 'index']) ?></li>
         <li><?= $this->Html->link(__('New Formation'), ['controller' => 'Formations', 'action' => 'add']) ?></li>
+        <li><?= $this->Html->link(__('List Status'), ['controller' => 'Status', 'action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('New Status'), ['controller' => 'Status', 'action' => 'add']) ?></li>
     </ul>
 </nav>
 <div class="positionsFormations form large-9 medium-8 columns content">
@@ -20,7 +22,7 @@
         <legend><?= __('Add Positions Formation') ?></legend>
         <?php
             echo $this->Form->control('id');
-            echo $this->Form->control('status_id');
+            echo $this->Form->control('status_id', ['options' => $status]);
         ?>
     </fieldset>
     <?= $this->Form->button(__('Submit')) ?>

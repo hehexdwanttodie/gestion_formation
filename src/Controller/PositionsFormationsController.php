@@ -20,7 +20,7 @@ class PositionsFormationsController extends AppController
     public function index()
     {
         $this->paginate = [
-            'contain' => ['Positions', 'Formations']
+            'contain' => ['Positions', 'Formations', 'Status']
         ];
         $positionsFormations = $this->paginate($this->PositionsFormations);
 
@@ -37,7 +37,7 @@ class PositionsFormationsController extends AppController
     public function view($id = null)
     {
         $positionsFormation = $this->PositionsFormations->get($id, [
-            'contain' => ['Positions', 'Formations']
+            'contain' => ['Positions', 'Formations', 'Status']
         ]);
 
         $this->set('positionsFormation', $positionsFormation);
@@ -62,7 +62,8 @@ class PositionsFormationsController extends AppController
         }
         $positions = $this->PositionsFormations->Positions->find('list', ['limit' => 200]);
         $formations = $this->PositionsFormations->Formations->find('list', ['limit' => 200]);
-        $this->set(compact('positionsFormation', 'positions', 'formations'));
+        $status = $this->PositionsFormations->Status->find('list', ['limit' => 200]);
+        $this->set(compact('positionsFormation', 'positions', 'formations', 'status'));
     }
 
     /**
@@ -88,7 +89,8 @@ class PositionsFormationsController extends AppController
         }
         $positions = $this->PositionsFormations->Positions->find('list', ['limit' => 200]);
         $formations = $this->PositionsFormations->Formations->find('list', ['limit' => 200]);
-        $this->set(compact('positionsFormation', 'positions', 'formations'));
+        $status = $this->PositionsFormations->Status->find('list', ['limit' => 200]);
+        $this->set(compact('positionsFormation', 'positions', 'formations', 'status'));
     }
 
     /**

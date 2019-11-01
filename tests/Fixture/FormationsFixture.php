@@ -61,8 +61,8 @@ class FormationsFixture extends TestFixture
                 'modality_id' => 1,
                 'reminder_id' => 1,
                 'duration' => 1.5,
-                'created' => '2019-10-25',
-                'modified' => '2019-10-25'
+                'created' => '2019-11-01',
+                'modified' => '2019-11-01'
             ],
         ];
         parent::init();

@@ -9,11 +9,12 @@ use Cake\ORM\Entity;
  * @property int $id
  * @property int $employe_id
  * @property int $formation_id
- * @property int $file_id
- * @property \Cake\I18n\FrozenTime $date_done
+ * @property \Cake\I18n\FrozenDate|null $date_done
+ * @property \Cake\I18n\FrozenDate|null $date_due
  *
  * @property \App\Model\Entity\Employe $employe
  * @property \App\Model\Entity\Formation $formation
+ * @property \App\Model\Entity\File $file
  */
 class EmployesFormation extends Entity
 {
@@ -29,9 +30,10 @@ class EmployesFormation extends Entity
     protected $_accessible = [
         'employe_id' => true,
         'formation_id' => true,
-        'file_id' => true,
         'date_done' => true,
+        'date_due' => true,
         'employe' => true,
-        'formation' => true
+        'formation' => true,
+        'file' => true
     ];
 }

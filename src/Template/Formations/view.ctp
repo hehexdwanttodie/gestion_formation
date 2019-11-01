@@ -42,15 +42,15 @@
         </tr>
         <tr>
             <th scope="row"><?= __('Frequency') ?></th>
-            <td><?= $formation->has('frequency') ? $this->Html->link($formation->frequency->id, ['controller' => 'Frequencies', 'action' => 'view', $formation->frequency->id]) : '' ?></td>
+            <td><?= $formation->has('frequency') ? $this->Html->link($formation->frequency->time, ['controller' => 'Frequencies', 'action' => 'view', $formation->frequency->id]) : '' ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Modality') ?></th>
-            <td><?= $formation->has('modality') ? $this->Html->link($formation->modality->id, ['controller' => 'Modalities', 'action' => 'view', $formation->modality->id]) : '' ?></td>
+            <td><?= $formation->has('modality') ? $this->Html->link($formation->modality->type, ['controller' => 'Modalities', 'action' => 'view', $formation->modality->id]) : '' ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Reminder') ?></th>
-            <td><?= $formation->has('reminder') ? $this->Html->link($formation->reminder->id, ['controller' => 'Reminders', 'action' => 'view', $formation->reminder->id]) : '' ?></td>
+            <td><?= $formation->has('reminder') ? $this->Html->link($formation->reminder->time, ['controller' => 'Reminders', 'action' => 'view', $formation->reminder->id]) : '' ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Id') ?></th>

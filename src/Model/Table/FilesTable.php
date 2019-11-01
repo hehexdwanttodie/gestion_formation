@@ -9,8 +9,6 @@ use Cake\Validation\Validator;
 /**
  * Files Model
  *
- * @property \App\Model\Table\EmployesFormationsTable&\Cake\ORM\Association\HasMany $EmployesFormations
- *
  * @method \App\Model\Entity\File get($primaryKey, $options = [])
  * @method \App\Model\Entity\File newEntity($data = null, array $options = [])
  * @method \App\Model\Entity\File[] newEntities(array $data, array $options = [])
@@ -39,10 +37,6 @@ class FilesTable extends Table
         $this->setPrimaryKey('id');
 
         $this->addBehavior('Timestamp');
-
-        $this->hasMany('EmployesFormations', [
-            'foreignKey' => 'file_id'
-        ]);
     }
 
     /**

@@ -32,7 +32,6 @@ class FrequenciesTable extends Table
     {
         parent::initialize($config);
 
-
         $this->setTable('frequencies');
         $this->setDisplayField('time');
         $this->setPrimaryKey('id');

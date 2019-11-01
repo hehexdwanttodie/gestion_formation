@@ -51,8 +51,8 @@
                 <th scope="col"><?= __('Id') ?></th>
                 <th scope="col"><?= __('Employe Id') ?></th>
                 <th scope="col"><?= __('Formation Id') ?></th>
-                <th scope="col"><?= __('File Id') ?></th>
                 <th scope="col"><?= __('Date Done') ?></th>
+                <th scope="col"><?= __('Date Due') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
             <?php foreach ($file->employes_formations as $employesFormations): ?>
@@ -60,8 +60,8 @@
                 <td><?= h($employesFormations->id) ?></td>
                 <td><?= h($employesFormations->employe_id) ?></td>
                 <td><?= h($employesFormations->formation_id) ?></td>
-                <td><?= h($employesFormations->file_id) ?></td>
                 <td><?= h($employesFormations->date_done) ?></td>
+                <td><?= h($employesFormations->date_due) ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['controller' => 'EmployesFormations', 'action' => 'view', $employesFormations->id]) ?>
                     <?= $this->Html->link(__('Edit'), ['controller' => 'EmployesFormations', 'action' => 'edit', $employesFormations->id]) ?>

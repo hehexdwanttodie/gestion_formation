@@ -12,6 +12,8 @@
         <li><?= $this->Html->link(__('New Employe'), ['controller' => 'Employes', 'action' => 'add']) ?></li>
         <li><?= $this->Html->link(__('List Formations'), ['controller' => 'Formations', 'action' => 'index']) ?></li>
         <li><?= $this->Html->link(__('New Formation'), ['controller' => 'Formations', 'action' => 'add']) ?></li>
+        <li><?= $this->Html->link(__('List Files'), ['controller' => 'Files', 'action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('New File'), ['controller' => 'Files', 'action' => 'add']) ?></li>
     </ul>
 </nav>
 <div class="employesFormations index large-9 medium-8 columns content">
@@ -22,8 +24,8 @@
                 <th scope="col"><?= $this->Paginator->sort('id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('employe_id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('formation_id') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('file_id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('date_done') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('date_due') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
         </thead>
@@ -33,8 +35,8 @@
                 <td><?= $this->Number->format($employesFormation->id) ?></td>
                 <td><?= $employesFormation->has('employe') ? $this->Html->link($employesFormation->employe->name, ['controller' => 'Employes', 'action' => 'view', $employesFormation->employe->id]) : '' ?></td>
                 <td><?= $employesFormation->has('formation') ? $this->Html->link($employesFormation->formation->title, ['controller' => 'Formations', 'action' => 'view', $employesFormation->formation->id]) : '' ?></td>
-                <td><?= $this->Number->format($employesFormation->file_id) ?></td>
                 <td><?= h($employesFormation->date_done) ?></td>
+                <td><?= h($employesFormation->date_due) ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['action' => 'view', $employesFormation->id]) ?>
                     <?= $this->Html->link(__('Edit'), ['action' => 'edit', $employesFormation->id]) ?>

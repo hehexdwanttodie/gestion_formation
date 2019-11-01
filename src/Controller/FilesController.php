@@ -49,25 +49,13 @@ class FilesController extends AppController
     {
         $file = $this->Files->newEntity();
         if ($this->request->is('post')) {
-            if (!empty($this->request->data['name']['name'])) {
-                $fileName = $this->request->data['name']['name'];
-                $uploadPath = 'Files/';
-                $uploadFile = $uploadPath . $fileName;
-                if (move_uploaded_file($this->request->data['name']['tmp_name'], 'pdf/' . $uploadFile)) {
-                    $file = $this->Files->patchEntity($file, $this->request->getData());
-                    $file->name = $fileName;
-                    $file->path = $uploadPath;
-                    if ($this->Files->save($file)) {
-                        $this->Flash->success(__('The file has been saved.'));
-                    } else {
-                        $this->Flash->error(__('Unable to upload file, please try again.'));
-                    }
-                } else {
-                    $this->Flash->error(__('Unable to save file, please try again.'));
-                }
-            } else {
-                $this->Flash->error(__('Please choose a file to upload.'));
+            $file = $this->Files->patchEntity($file, $this->request->getData());
+            if ($this->Files->save($file)) {
+                $this->Flash->success(__('The file has been saved.'));
+
+                return $this->redirect(['action' => 'index']);
             }
+            $this->Flash->error(__('The file could not be saved. Please, try again.'));
         }
         $this->set(compact('file'));
     }
@@ -114,12 +102,5 @@ class FilesController extends AppController
         }
 
         return $this->redirect(['action' => 'index']);
-    }
-    public function isAuthorized($user)
-    {
-        $action = $this->request->getParam('action');
-        if (in_array($action, ['index','add', 'edit', 'delete','view'])) {
-            return true;
-        }
     }
 }

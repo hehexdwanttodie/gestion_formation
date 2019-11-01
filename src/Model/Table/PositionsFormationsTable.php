@@ -11,7 +11,7 @@ use Cake\Validation\Validator;
  *
  * @property \App\Model\Table\PositionsTable&\Cake\ORM\Association\BelongsTo $Positions
  * @property \App\Model\Table\FormationsTable&\Cake\ORM\Association\BelongsTo $Formations
- * @property &\Cake\ORM\Association\BelongsTo $Status
+ * @property \App\Model\Table\StatusTable&\Cake\ORM\Association\BelongsTo $Status
  *
  * @method \App\Model\Entity\PositionsFormation get($primaryKey, $options = [])
  * @method \App\Model\Entity\PositionsFormation newEntity($data = null, array $options = [])

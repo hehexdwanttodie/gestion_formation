@@ -22,7 +22,8 @@ class PositionsFormationsControllerTest extends TestCase
     public $fixtures = [
         'app.PositionsFormations',
         'app.Positions',
-        'app.Formations'
+        'app.Formations',
+        'app.Status'
     ];
 
     /**

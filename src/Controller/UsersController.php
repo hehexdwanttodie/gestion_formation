@@ -34,7 +34,7 @@ class UsersController extends AppController
     public function view($id = null)
     {
         $user = $this->Users->get($id, [
-            'contain' => []
+            'contain' => ['Employes']
         ]);
 
         $this->set('user', $user);
@@ -103,36 +103,10 @@ class UsersController extends AppController
 
         return $this->redirect(['action' => 'index']);
     }
-
-    public function login()
-    {
-        if ($this->request->is('post')) {
-            $user = $this->Auth->identify();
-
-            if ($user) {
-                $this->Auth->setUser($user);
-                return $this->redirect($this->Auth->redirectUrl());
-                $this->Flash->success('Vous avez été déconnecté.');
-            }
-            $this->Flash->error('Votre identifiant ou votre mot de passe est incorrect.');
-        }
-    }
-
-    public function logout()
-    {
-        $this->Flash->success('Vous avez été déconnecté.');
-        return $this->redirect($this->Auth->logout());
-    }
-    public function initialize()
-    {
-        parent::initialize();
-        $this->Auth->allow(['login','logout',]);
-    }
-
     public function isAuthorized($user)
     {
         $action = $this->request->getParam('action');
-        if (in_array($action, ['index','display','add', 'edit', 'delete','view'])) {
+        if (in_array($action, ['index','add', 'edit', 'delete','view'])) {
             return true;
         }
     }

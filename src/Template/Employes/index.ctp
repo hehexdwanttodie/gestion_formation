@@ -46,9 +46,9 @@
             <tr>
                 <td><?= $this->Number->format($employe->id) ?></td>
                 <td><?= h($employe->number) ?></td>
-                <td><?= $employe->has('user') ? $this->Html->link($employe->user->id, ['controller' => 'Users', 'action' => 'view', $employe->user->id]) : '' ?></td>
+                <td><?= $employe->has('user') ? $this->Html->link($employe->user->fullName, ['controller' => 'Users', 'action' => 'view', $employe->user->id]) : '' ?></td>
                 <td><?= $employe->has('position') ? $this->Html->link($employe->position->title, ['controller' => 'Positions', 'action' => 'view', $employe->position->id]) : '' ?></td>
-                <td><?= $employe->has('building') ? $this->Html->link($employe->building->id, ['controller' => 'Buildings', 'action' => 'view', $employe->building->id]) : '' ?></td>
+                <td><?= $employe->has('building') ? $this->Html->link($employe->building->adress, ['controller' => 'Buildings', 'action' => 'view', $employe->building->id]) : '' ?></td>
                 <td><?= $employe->has('civility') ? $this->Html->link($employe->civility->name, ['controller' => 'Civilities', 'action' => 'view', $employe->civility->id]) : '' ?></td>
                 <td><?= $employe->has('language') ? $this->Html->link($employe->language->name, ['controller' => 'Languages', 'action' => 'view', $employe->language->id]) : '' ?></td>
                 <td><?= h($employe->email) ?></td>

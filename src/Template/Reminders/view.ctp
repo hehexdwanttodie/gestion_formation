@@ -16,7 +16,7 @@
     </ul>
 </nav>
 <div class="reminders view large-9 medium-8 columns content">
-    <h3><?= h($reminder->id) ?></h3>
+    <h3><?= h($reminder->time) ?></h3>
     <table class="vertical-table">
         <tr>
             <th scope="row"><?= __('Time') ?></th>

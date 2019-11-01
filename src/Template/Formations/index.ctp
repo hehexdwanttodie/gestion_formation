@@ -47,9 +47,9 @@
                 <td><?= h($formation->title) ?></td>
                 <td><?= h($formation->description) ?></td>
                 <td><?= $formation->has('category') ? $this->Html->link($formation->category->name, ['controller' => 'Categories', 'action' => 'view', $formation->category->id]) : '' ?></td>
-                <td><?= $formation->has('frequency') ? $this->Html->link($formation->frequency->id, ['controller' => 'Frequencies', 'action' => 'view', $formation->frequency->id]) : '' ?></td>
-                <td><?= $formation->has('modality') ? $this->Html->link($formation->modality->id, ['controller' => 'Modalities', 'action' => 'view', $formation->modality->id]) : '' ?></td>
-                <td><?= $formation->has('reminder') ? $this->Html->link($formation->reminder->id, ['controller' => 'Reminders', 'action' => 'view', $formation->reminder->id]) : '' ?></td>
+                <td><?= $formation->has('frequency') ? $this->Html->link($formation->frequency->time, ['controller' => 'Frequencies', 'action' => 'view', $formation->frequency->id]) : '' ?></td>
+                <td><?= $formation->has('modality') ? $this->Html->link($formation->modality->type, ['controller' => 'Modalities', 'action' => 'view', $formation->modality->id]) : '' ?></td>
+                <td><?= $formation->has('reminder') ? $this->Html->link($formation->reminder->time, ['controller' => 'Reminders', 'action' => 'view', $formation->reminder->id]) : '' ?></td>
                 <td><?= $this->Number->format($formation->duration) ?></td>
                 <td><?= h($formation->created) ?></td>
                 <td><?= h($formation->modified) ?></td>

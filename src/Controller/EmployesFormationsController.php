@@ -20,7 +20,7 @@ class EmployesFormationsController extends AppController
     public function index()
     {
         $this->paginate = [
-            'contain' => ['Employes', 'Formations']
+            'contain' => ['Employes', 'Formations', 'Files']
         ];
         $employesFormations = $this->paginate($this->EmployesFormations);
 
@@ -37,7 +37,7 @@ class EmployesFormationsController extends AppController
     public function view($id = null)
     {
         $employesFormation = $this->EmployesFormations->get($id, [
-            'contain' => ['Employes', 'Formations']
+            'contain' => ['Employes', 'Formations', 'Files']
         ]);
 
         $this->set('employesFormation', $employesFormation);
@@ -62,7 +62,8 @@ class EmployesFormationsController extends AppController
         }
         $employes = $this->EmployesFormations->Employes->find('list', ['limit' => 200]);
         $formations = $this->EmployesFormations->Formations->find('list', ['limit' => 200]);
-        $this->set(compact('employesFormation', 'employes', 'formations'));
+        $files = $this->EmployesFormations->Files->find('list', ['limit' => 200]);
+        $this->set(compact('employesFormation', 'employes', 'formations', 'files'));
     }
 
     /**
@@ -88,7 +89,8 @@ class EmployesFormationsController extends AppController
         }
         $employes = $this->EmployesFormations->Employes->find('list', ['limit' => 200]);
         $formations = $this->EmployesFormations->Formations->find('list', ['limit' => 200]);
-        $this->set(compact('employesFormation', 'employes', 'formations'));
+        $files = $this->EmployesFormations->Files->find('list', ['limit' => 200]);
+        $this->set(compact('employesFormation', 'employes', 'formations', 'files'));
     }
 
     /**

@@ -15,6 +15,8 @@
         <li><?= $this->Html->link(__('New Employe'), ['controller' => 'Employes', 'action' => 'add']) ?> </li>
         <li><?= $this->Html->link(__('List Formations'), ['controller' => 'Formations', 'action' => 'index']) ?> </li>
         <li><?= $this->Html->link(__('New Formation'), ['controller' => 'Formations', 'action' => 'add']) ?> </li>
+        <li><?= $this->Html->link(__('List Files'), ['controller' => 'Files', 'action' => 'index']) ?> </li>
+        <li><?= $this->Html->link(__('New File'), ['controller' => 'Files', 'action' => 'add']) ?> </li>
     </ul>
 </nav>
 <div class="employesFormations view large-9 medium-8 columns content">
@@ -33,12 +35,12 @@
             <td><?= $this->Number->format($employesFormation->id) ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('File Id') ?></th>
-            <td><?= $this->Number->format($employesFormation->file_id) ?></td>
-        </tr>
-        <tr>
             <th scope="row"><?= __('Date Done') ?></th>
             <td><?= h($employesFormation->date_done) ?></td>
+        </tr>
+        <tr>
+            <th scope="row"><?= __('Date Due') ?></th>
+            <td><?= h($employesFormation->date_due) ?></td>
         </tr>
     </table>
 </div>

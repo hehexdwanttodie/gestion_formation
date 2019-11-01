@@ -46,10 +46,10 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
                     <?= $this->Html->link('Employés', ['controller' => 'employes', 'action' => 'index/']); ?>
                 </li>
                 <li>
-                    <?= $this->Html->link('Formations', ['controller' => 'employes', 'action' => 'index/']); ?>
+                    <?= $this->Html->link('Formations', ['controller' => 'formations', 'action' => 'index/']); ?>
                 </li>
                 <li>
-                    <?= $this->Html->link('Postes', ['controller' => 'employes', 'action' => 'index/']); ?>
+                    <?= $this->Html->link('Postes', ['controller' => 'positions', 'action' => 'index/']); ?>
                 </li>
                 <li><?php
                     $loguser = $this->request->session()->read('Auth.User');

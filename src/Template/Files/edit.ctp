@@ -19,13 +19,12 @@
     </ul>
 </nav>
 <div class="files form large-9 medium-8 columns content">
-    <?= $this->Form->create($file, ['type' => 'file']) ?>
+    <?= $this->Form->create($file) ?>
     <fieldset>
         <legend><?= __('Edit File') ?></legend>
         <?php
-            echo $this->Form->control('name', ['type' => 'file']);
-            //echo $this->Form->control('name');
-            //echo $this->Form->control('path');
+            echo $this->Form->control('name');
+            echo $this->Form->control('path');
             echo $this->Form->control('modfied');
             echo $this->Form->control('status');
         ?>

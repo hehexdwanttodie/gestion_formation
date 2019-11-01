@@ -25,7 +25,8 @@ class EmployesFormationsTableTest extends TestCase
     public $fixtures = [
         'app.EmployesFormations',
         'app.Employes',
-        'app.Formations'
+        'app.Formations',
+        'app.Files'
     ];
 
     /**

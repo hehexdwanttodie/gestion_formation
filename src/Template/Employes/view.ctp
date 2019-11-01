@@ -34,7 +34,7 @@
         </tr>
         <tr>
             <th scope="row"><?= __('User') ?></th>
-            <td><?= $employe->has('user') ? $this->Html->link($employe->user->id, ['controller' => 'Users', 'action' => 'view', $employe->user->id]) : '' ?></td>
+            <td><?= $employe->has('user') ? $this->Html->link($employe->user->fullName, ['controller' => 'Users', 'action' => 'view', $employe->user->id]) : '' ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Position') ?></th>
@@ -42,7 +42,7 @@
         </tr>
         <tr>
             <th scope="row"><?= __('Building') ?></th>
-            <td><?= $employe->has('building') ? $this->Html->link($employe->building->id, ['controller' => 'Buildings', 'action' => 'view', $employe->building->id]) : '' ?></td>
+            <td><?= $employe->has('building') ? $this->Html->link($employe->building->adress, ['controller' => 'Buildings', 'action' => 'view', $employe->building->id]) : '' ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Civility') ?></th>

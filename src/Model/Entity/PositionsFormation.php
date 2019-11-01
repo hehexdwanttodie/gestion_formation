@@ -13,6 +13,7 @@ use Cake\ORM\Entity;
  *
  * @property \App\Model\Entity\Position $position
  * @property \App\Model\Entity\Formation $formation
+ * @property \App\Model\Entity\Status $status
  */
 class PositionsFormation extends Entity
 {
@@ -30,6 +31,7 @@ class PositionsFormation extends Entity
         'formation_id' => true,
         'status_id' => true,
         'position' => true,
-        'formation' => true
+        'formation' => true,
+        'status' => true
     ];
 }

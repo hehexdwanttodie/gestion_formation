@@ -12,6 +12,8 @@
         <li><?= $this->Html->link(__('New Position'), ['controller' => 'Positions', 'action' => 'add']) ?></li>
         <li><?= $this->Html->link(__('List Formations'), ['controller' => 'Formations', 'action' => 'index']) ?></li>
         <li><?= $this->Html->link(__('New Formation'), ['controller' => 'Formations', 'action' => 'add']) ?></li>
+        <li><?= $this->Html->link(__('List Status'), ['controller' => 'Status', 'action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('New Status'), ['controller' => 'Status', 'action' => 'add']) ?></li>
     </ul>
 </nav>
 <div class="positionsFormations index large-9 medium-8 columns content">
@@ -32,7 +34,7 @@
                 <td><?= $this->Number->format($positionsFormation->id) ?></td>
                 <td><?= $positionsFormation->has('position') ? $this->Html->link($positionsFormation->position->title, ['controller' => 'Positions', 'action' => 'view', $positionsFormation->position->id]) : '' ?></td>
                 <td><?= $positionsFormation->has('formation') ? $this->Html->link($positionsFormation->formation->title, ['controller' => 'Formations', 'action' => 'view', $positionsFormation->formation->id]) : '' ?></td>
-                <td><?= $this->Number->format($positionsFormation->status_id) ?></td>
+                <td><?= $positionsFormation->has('status') ? $this->Html->link($positionsFormation->status->name, ['controller' => 'Status', 'action' => 'view', $positionsFormation->status->id]) : '' ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['action' => 'view', $positionsFormation->position_id]) ?>
                     <?= $this->Html->link(__('Edit'), ['action' => 'edit', $positionsFormation->position_id]) ?>

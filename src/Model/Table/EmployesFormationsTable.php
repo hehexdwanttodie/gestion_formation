@@ -11,7 +11,6 @@ use Cake\Validation\Validator;
  *
  * @property \App\Model\Table\EmployesTable&\Cake\ORM\Association\BelongsTo $Employes
  * @property \App\Model\Table\FormationsTable&\Cake\ORM\Association\BelongsTo $Formations
- * @property &\Cake\ORM\Association\BelongsTo $Files
  *
  * @method \App\Model\Entity\EmployesFormation get($primaryKey, $options = [])
  * @method \App\Model\Entity\EmployesFormation newEntity($data = null, array $options = [])
@@ -46,10 +45,6 @@ class EmployesFormationsTable extends Table
             'foreignKey' => 'formation_id',
             'joinType' => 'INNER'
         ]);
-        $this->belongsTo('Files', [
-            'foreignKey' => 'file_id',
-            'joinType' => 'INNER'
-        ]);
     }
 
     /**
@@ -65,9 +60,12 @@ class EmployesFormationsTable extends Table
             ->allowEmptyString('id', null, 'create');
 
         $validator
-            ->dateTime('date_done')
-            ->requirePresence('date_done', 'create')
-            ->notEmptyDateTime('date_done');
+            ->date('date_done')
+            ->allowEmptyDate('date_done');
+
+        $validator
+            ->date('date_due')
+            ->allowEmptyDate('date_due');
 
         return $validator;
     }
@@ -83,7 +81,6 @@ class EmployesFormationsTable extends Table
     {
         $rules->add($rules->existsIn(['employe_id'], 'Employes'));
         $rules->add($rules->existsIn(['formation_id'], 'Formations'));
-        $rules->add($rules->existsIn(['file_id'], 'Files'));
 
         return $rules;
     }

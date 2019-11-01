@@ -16,7 +16,7 @@
     </ul>
 </nav>
 <div class="frequencies view large-9 medium-8 columns content">
-    <h3><?= h($frequency->id) ?></h3>
+    <h3><?= h($frequency->time) ?></h3>
     <table class="vertical-table">
         <tr>
             <th scope="row"><?= __('Time') ?></th>
