@@ -9,6 +9,8 @@ use Cake\Validation\Validator;
 /**
  * Files Model
  *
+ * @property &\Cake\ORM\Association\BelongsTo $EmployesFormations
+ *
  * @method \App\Model\Entity\File get($primaryKey, $options = [])
  * @method \App\Model\Entity\File newEntity($data = null, array $options = [])
  * @method \App\Model\Entity\File[] newEntities(array $data, array $options = [])
@@ -37,6 +39,11 @@ class FilesTable extends Table
         $this->setPrimaryKey('id');
 
         $this->addBehavior('Timestamp');
+
+        $this->belongsTo('EmployesFormations', [
+            'foreignKey' => 'employeFormation_id',
+            'joinType' => 'INNER'
+        ]);
     }
 
     /**
@@ -73,5 +80,19 @@ class FilesTable extends Table
             ->notEmptyString('status');
 
         return $validator;
+    }
+
+    /**
+     * Returns a rules checker object that will be used for validating
+     * application integrity.
+     *
+     * @param \Cake\ORM\RulesChecker $rules The rules object to be modified.
+     * @return \Cake\ORM\RulesChecker
+     */
+    public function buildRules(RulesChecker $rules)
+    {
+        $rules->add($rules->existsIn(['employeFormation_id'], 'EmployesFormations'));
+
+        return $rules;
     }
 }

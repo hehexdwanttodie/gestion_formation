@@ -7,13 +7,12 @@ use Cake\ORM\Entity;
  * File Entity
  *
  * @property int $id
+ * @property int $employeFormation_id
  * @property string $name
  * @property string $path
  * @property \Cake\I18n\FrozenTime $created
  * @property \Cake\I18n\FrozenTime $modfied
  * @property bool $status
- *
- * @property \App\Model\Entity\EmployesFormation[] $employes_formations
  */
 class File extends Entity
 {
@@ -27,11 +26,11 @@ class File extends Entity
      * @var array
      */
     protected $_accessible = [
+        'employeFormation_id' => true,
         'name' => true,
         'path' => true,
         'created' => true,
         'modfied' => true,
-        'status' => true,
-        'employes_formations' => true
+        'status' => true
     ];
 }

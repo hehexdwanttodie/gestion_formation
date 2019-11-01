@@ -14,7 +14,6 @@ use Cake\ORM\Entity;
  *
  * @property \App\Model\Entity\Employe $employe
  * @property \App\Model\Entity\Formation $formation
- * @property \App\Model\Entity\File $file
  */
 class EmployesFormation extends Entity
 {
@@ -33,7 +32,6 @@ class EmployesFormation extends Entity
         'date_done' => true,
         'date_due' => true,
         'employe' => true,
-        'formation' => true,
-        'file' => true
+        'formation' => true
     ];
 }

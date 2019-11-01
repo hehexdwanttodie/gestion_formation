@@ -34,7 +34,7 @@ class FilesController extends AppController
     public function view($id = null)
     {
         $file = $this->Files->get($id, [
-            'contain' => ['EmployesFormations']
+            'contain' => []
         ]);
 
         $this->set('file', $file);
@@ -102,5 +102,12 @@ class FilesController extends AppController
         }
 
         return $this->redirect(['action' => 'index']);
+    }
+    public function isAuthorized($user)
+    {
+        $action = $this->request->getParam('action');
+        if (in_array($action, ['index','add', 'edit', 'delete','view'])) {
+            return true;
+        }
     }
 }

@@ -8,8 +8,6 @@
     <ul class="side-nav">
         <li class="heading"><?= __('Actions') ?></li>
         <li><?= $this->Html->link(__('New File'), ['action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Employes Formations'), ['controller' => 'EmployesFormations', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Employes Formation'), ['controller' => 'EmployesFormations', 'action' => 'add']) ?></li>
     </ul>
 </nav>
 <div class="files index large-9 medium-8 columns content">
@@ -18,6 +16,7 @@
         <thead>
             <tr>
                 <th scope="col"><?= $this->Paginator->sort('id') ?></th>
+                <th scope="col"><?= $this->Paginator->sort('employeFormation_id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('name') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('path') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('created') ?></th>
@@ -30,6 +29,7 @@
             <?php foreach ($files as $file): ?>
             <tr>
                 <td><?= $this->Number->format($file->id) ?></td>
+                <td><?= $this->Number->format($file->employeFormation_id) ?></td>
                 <td><?= h($file->name) ?></td>
                 <td><?= h($file->path) ?></td>
                 <td><?= h($file->created) ?></td>

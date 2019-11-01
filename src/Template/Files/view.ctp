@@ -11,8 +11,6 @@
         <li><?= $this->Form->postLink(__('Delete File'), ['action' => 'delete', $file->id], ['confirm' => __('Are you sure you want to delete # {0}?', $file->id)]) ?> </li>
         <li><?= $this->Html->link(__('List Files'), ['action' => 'index']) ?> </li>
         <li><?= $this->Html->link(__('New File'), ['action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List Employes Formations'), ['controller' => 'EmployesFormations', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Employes Formation'), ['controller' => 'EmployesFormations', 'action' => 'add']) ?> </li>
     </ul>
 </nav>
 <div class="files view large-9 medium-8 columns content">
@@ -31,6 +29,10 @@
             <td><?= $this->Number->format($file->id) ?></td>
         </tr>
         <tr>
+            <th scope="row"><?= __('EmployeFormation Id') ?></th>
+            <td><?= $this->Number->format($file->employeFormation_id) ?></td>
+        </tr>
+        <tr>
             <th scope="row"><?= __('Created') ?></th>
             <td><?= h($file->created) ?></td>
         </tr>
@@ -43,33 +45,4 @@
             <td><?= $file->status ? __('Yes') : __('No'); ?></td>
         </tr>
     </table>
-    <div class="related">
-        <h4><?= __('Related Employes Formations') ?></h4>
-        <?php if (!empty($file->employes_formations)): ?>
-        <table cellpadding="0" cellspacing="0">
-            <tr>
-                <th scope="col"><?= __('Id') ?></th>
-                <th scope="col"><?= __('Employe Id') ?></th>
-                <th scope="col"><?= __('Formation Id') ?></th>
-                <th scope="col"><?= __('Date Done') ?></th>
-                <th scope="col"><?= __('Date Due') ?></th>
-                <th scope="col" class="actions"><?= __('Actions') ?></th>
-            </tr>
-            <?php foreach ($file->employes_formations as $employesFormations): ?>
-            <tr>
-                <td><?= h($employesFormations->id) ?></td>
-                <td><?= h($employesFormations->employe_id) ?></td>
-                <td><?= h($employesFormations->formation_id) ?></td>
-                <td><?= h($employesFormations->date_done) ?></td>
-                <td><?= h($employesFormations->date_due) ?></td>
-                <td class="actions">
-                    <?= $this->Html->link(__('View'), ['controller' => 'EmployesFormations', 'action' => 'view', $employesFormations->id]) ?>
-                    <?= $this->Html->link(__('Edit'), ['controller' => 'EmployesFormations', 'action' => 'edit', $employesFormations->id]) ?>
-                    <?= $this->Form->postLink(__('Delete'), ['controller' => 'EmployesFormations', 'action' => 'delete', $employesFormations->id], ['confirm' => __('Are you sure you want to delete # {0}?', $employesFormations->id)]) ?>
-                </td>
-            </tr>
-            <?php endforeach; ?>
-        </table>
-        <?php endif; ?>
-    </div>
 </div>

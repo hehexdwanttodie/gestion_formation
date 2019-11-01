@@ -8,8 +8,6 @@
     <ul class="side-nav">
         <li class="heading"><?= __('Actions') ?></li>
         <li><?= $this->Html->link(__('List Files'), ['action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('List Employes Formations'), ['controller' => 'EmployesFormations', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Employes Formation'), ['controller' => 'EmployesFormations', 'action' => 'add']) ?></li>
     </ul>
 </nav>
 <div class="files form large-9 medium-8 columns content">
@@ -17,6 +15,7 @@
     <fieldset>
         <legend><?= __('Add File') ?></legend>
         <?php
+            echo $this->Form->control('employeFormation_id');
             echo $this->Form->control('name');
             echo $this->Form->control('path');
             echo $this->Form->control('modfied');

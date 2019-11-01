@@ -103,6 +103,18 @@ class UsersController extends AppController
 
         return $this->redirect(['action' => 'index']);
     }
+
+    public function login()
+    {
+        if ($this->request->is('post')) {
+            $user = $this->Auth->identify();
+            if ($user) {
+                $this->Auth->setUser($user);
+                return $this->redirect($this->Auth->redirectUrl());
+            }
+            $this->Flash->error('Votre identifiant ou votre mot de passe est incorrect.');
+        }
+    }
     public function isAuthorized($user)
     {
         $action = $this->request->getParam('action');

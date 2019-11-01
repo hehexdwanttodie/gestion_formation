@@ -52,6 +52,8 @@ class Employe extends Entity
         'building' => true,
         'civility' => true,
         'language' => true,
-        'formations' => true
+        'formations' => true,
+        'files' => true
+
     ];
 }
