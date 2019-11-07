@@ -53,10 +53,6 @@
             <td><?= $formation->has('reminder') ? $this->Html->link($formation->reminder->time, ['controller' => 'Reminders', 'action' => 'view', $formation->reminder->id]) : '' ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Id') ?></th>
-            <td><?= $this->Number->format($formation->id) ?></td>
-        </tr>
-        <tr>
             <th scope="row"><?= __('Duration') ?></th>
             <td><?= $this->Number->format($formation->duration) ?></td>
         </tr>
@@ -69,7 +65,7 @@
             <td><?= h($formation->modified) ?></td>
         </tr>
     </table>
-    <div class="related">
+<!--    <div class="related">
         <h4><?= __('Related Employes') ?></h4>
         <?php if (!empty($formation->employes)): ?>
         <table cellpadding="0" cellspacing="0">
@@ -109,13 +105,12 @@
             <?php endforeach; ?>
         </table>
         <?php endif; ?>
-    </div>
+    </div>-->
     <div class="related">
         <h4><?= __('Related Positions') ?></h4>
         <?php if (!empty($formation->positions)): ?>
         <table cellpadding="0" cellspacing="0">
             <tr>
-                <th scope="col"><?= __('Id') ?></th>
                 <th scope="col"><?= __('Title') ?></th>
                 <th scope="col"><?= __('Description') ?></th>
                 <th scope="col"><?= __('Created') ?></th>
@@ -124,7 +119,6 @@
             </tr>
             <?php foreach ($formation->positions as $positions): ?>
             <tr>
-                <td><?= h($positions->id) ?></td>
                 <td><?= h($positions->title) ?></td>
                 <td><?= h($positions->description) ?></td>
                 <td><?= h($positions->created) ?></td>

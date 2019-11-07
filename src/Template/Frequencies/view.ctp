@@ -22,12 +22,8 @@
             <th scope="row"><?= __('Time') ?></th>
             <td><?= h($frequency->time) ?></td>
         </tr>
-        <tr>
-            <th scope="row"><?= __('Id') ?></th>
-            <td><?= $this->Number->format($frequency->id) ?></td>
-        </tr>
     </table>
-    <div class="related">
+<!--    <div class="related">
         <h4><?= __('Related Formations') ?></h4>
         <?php if (!empty($frequency->formations)): ?>
         <table cellpadding="0" cellspacing="0">
@@ -65,5 +61,5 @@
             <?php endforeach; ?>
         </table>
         <?php endif; ?>
-    </div>
+    </div>-->
 </div>

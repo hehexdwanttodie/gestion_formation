@@ -8,8 +8,6 @@
     <ul class="side-nav">
         <li class="heading"><?= __('Actions') ?></li>
         <li><?= $this->Html->link(__('New Status'), ['action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Positions Formations'), ['controller' => 'PositionsFormations', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Positions Formation'), ['controller' => 'PositionsFormations', 'action' => 'add']) ?></li>
     </ul>
 </nav>
 <div class="status index large-9 medium-8 columns content">
@@ -17,7 +15,6 @@
     <table cellpadding="0" cellspacing="0">
         <thead>
             <tr>
-                <th scope="col"><?= $this->Paginator->sort('id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('name') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
@@ -25,7 +22,6 @@
         <tbody>
             <?php foreach ($status as $status): ?>
             <tr>
-                <td><?= $this->Number->format($status->id) ?></td>
                 <td><?= h($status->name) ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['action' => 'view', $status->id]) ?>

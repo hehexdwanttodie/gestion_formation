@@ -22,12 +22,12 @@
             <th scope="row"><?= __('Adress') ?></th>
             <td><?= h($building->adress) ?></td>
         </tr>
-        <tr>
+<!--        <tr>
             <th scope="row"><?= __('Id') ?></th>
             <td><?= $this->Number->format($building->id) ?></td>
-        </tr>
+        </tr>-->
     </table>
-    <div class="related">
+<!--    <div class="related">
         <h4><?= __('Related Employes') ?></h4>
         <?php if (!empty($building->employes)): ?>
         <table cellpadding="0" cellspacing="0">
@@ -67,5 +67,5 @@
             <?php endforeach; ?>
         </table>
         <?php endif; ?>
-    </div>
+    </div>-->
 </div>

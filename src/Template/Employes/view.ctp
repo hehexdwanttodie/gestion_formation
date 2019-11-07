@@ -65,15 +65,14 @@
             <td><?= h($employe->firstName) ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Id') ?></th>
-            <td><?= $this->Number->format($employe->id) ?></td>
-        </tr>
-        <tr>
             <th scope="row"><?= __('Actif') ?></th>
             <td><?= $employe->actif ? __('Yes') : __('No'); ?></td>
         </tr>
     </table>
     <div class="related">
+        <h4><?= $this->Html->link(__('View Training Plan'), ['action' => 'formation', $employe->id]) ?></h4>
+    </div>
+<!--    <div class="related">
         <h4><?= __('Related Formations') ?></h4>
         <?php if (!empty($employe->formations)): ?>
         <table cellpadding="0" cellspacing="0">
@@ -111,5 +110,5 @@
             <?php endforeach; ?>
         </table>
         <?php endif; ?>
-    </div>
+    </div>-->
 </div>

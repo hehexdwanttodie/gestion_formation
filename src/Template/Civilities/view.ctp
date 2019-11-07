@@ -22,12 +22,8 @@
             <th scope="row"><?= __('Name') ?></th>
             <td><?= h($civility->name) ?></td>
         </tr>
-        <tr>
-            <th scope="row"><?= __('Id') ?></th>
-            <td><?= $this->Number->format($civility->id) ?></td>
-        </tr>
     </table>
-    <div class="related">
+<!--    <div class="related">
         <h4><?= __('Related Employes') ?></h4>
         <?php if (!empty($civility->employes)): ?>
         <table cellpadding="0" cellspacing="0">
@@ -67,5 +63,5 @@
             <?php endforeach; ?>
         </table>
         <?php endif; ?>
-    </div>
+    </div>-->
 </div>

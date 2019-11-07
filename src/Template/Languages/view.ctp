@@ -22,23 +22,13 @@
             <th scope="row"><?= __('Name') ?></th>
             <td><?= h($language->name) ?></td>
         </tr>
-        <tr>
-            <th scope="row"><?= __('Id') ?></th>
-            <td><?= $this->Number->format($language->id) ?></td>
-        </tr>
     </table>
     <div class="related">
         <h4><?= __('Related Employes') ?></h4>
         <?php if (!empty($language->employes)): ?>
         <table cellpadding="0" cellspacing="0">
             <tr>
-                <th scope="col"><?= __('Id') ?></th>
                 <th scope="col"><?= __('Number') ?></th>
-                <th scope="col"><?= __('User Id') ?></th>
-                <th scope="col"><?= __('Position Id') ?></th>
-                <th scope="col"><?= __('Building Id') ?></th>
-                <th scope="col"><?= __('Civility Id') ?></th>
-                <th scope="col"><?= __('Language Id') ?></th>
                 <th scope="col"><?= __('Email') ?></th>
                 <th scope="col"><?= __('Name') ?></th>
                 <th scope="col"><?= __('FirstName') ?></th>
@@ -47,17 +37,11 @@
             </tr>
             <?php foreach ($language->employes as $employes): ?>
             <tr>
-                <td><?= h($employes->id) ?></td>
                 <td><?= h($employes->number) ?></td>
-                <td><?= h($employes->user_id) ?></td>
-                <td><?= h($employes->position_id) ?></td>
-                <td><?= h($employes->building_id) ?></td>
-                <td><?= h($employes->civility_id) ?></td>
-                <td><?= h($employes->language_id) ?></td>
                 <td><?= h($employes->email) ?></td>
                 <td><?= h($employes->name) ?></td>
                 <td><?= h($employes->firstName) ?></td>
-                <td><?= h($employes->actif) ?></td>
+                <td><?= h($employes->actif ? __('Yes') : __('No')) ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['controller' => 'Employes', 'action' => 'view', $employes->id]) ?>
                     <?= $this->Html->link(__('Edit'), ['controller' => 'Employes', 'action' => 'edit', $employes->id]) ?>

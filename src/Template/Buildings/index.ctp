@@ -17,7 +17,6 @@
     <table cellpadding="0" cellspacing="0">
         <thead>
             <tr>
-                <th scope="col"><?= $this->Paginator->sort('id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('adress') ?></th>
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
@@ -25,7 +24,6 @@
         <tbody>
             <?php foreach ($buildings as $building): ?>
             <tr>
-                <td><?= $this->Number->format($building->id) ?></td>
                 <td><?= h($building->adress) ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['action' => 'view', $building->id]) ?>

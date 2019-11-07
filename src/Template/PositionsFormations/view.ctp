@@ -34,9 +34,5 @@
             <th scope="row"><?= __('Status') ?></th>
             <td><?= $positionsFormation->has('status') ? $this->Html->link($positionsFormation->status->name, ['controller' => 'Status', 'action' => 'view', $positionsFormation->status->id]) : '' ?></td>
         </tr>
-        <tr>
-            <th scope="row"><?= __('Id') ?></th>
-            <td><?= $this->Number->format($positionsFormation->id) ?></td>
-        </tr>
     </table>
 </div>

@@ -22,23 +22,14 @@
             <th scope="row"><?= __('Type') ?></th>
             <td><?= h($modality->type) ?></td>
         </tr>
-        <tr>
-            <th scope="row"><?= __('Id') ?></th>
-            <td><?= $this->Number->format($modality->id) ?></td>
-        </tr>
     </table>
     <div class="related">
         <h4><?= __('Related Formations') ?></h4>
         <?php if (!empty($modality->formations)): ?>
         <table cellpadding="0" cellspacing="0">
             <tr>
-                <th scope="col"><?= __('Id') ?></th>
                 <th scope="col"><?= __('Title') ?></th>
                 <th scope="col"><?= __('Description') ?></th>
-                <th scope="col"><?= __('Category Id') ?></th>
-                <th scope="col"><?= __('Frequency Id') ?></th>
-                <th scope="col"><?= __('Modality Id') ?></th>
-                <th scope="col"><?= __('Reminder Id') ?></th>
                 <th scope="col"><?= __('Duration') ?></th>
                 <th scope="col"><?= __('Created') ?></th>
                 <th scope="col"><?= __('Modified') ?></th>
@@ -46,14 +37,9 @@
             </tr>
             <?php foreach ($modality->formations as $formations): ?>
             <tr>
-                <td><?= h($formations->id) ?></td>
                 <td><?= h($formations->title) ?></td>
                 <td><?= h($formations->description) ?></td>
-                <td><?= h($formations->category_id) ?></td>
-                <td><?= h($formations->frequency_id) ?></td>
-                <td><?= h($formations->modality_id) ?></td>
-                <td><?= h($formations->reminder_id) ?></td>
-                <td><?= h($formations->duration) ?></td>
+                <td><?= h($formations->duration) ?> heures</td>
                 <td><?= h($formations->created) ?></td>
                 <td><?= h($formations->modified) ?></td>
                 <td class="actions">

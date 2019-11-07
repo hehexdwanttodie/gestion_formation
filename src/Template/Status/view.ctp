@@ -22,12 +22,8 @@
             <th scope="row"><?= __('Name') ?></th>
             <td><?= h($status->name) ?></td>
         </tr>
-        <tr>
-            <th scope="row"><?= __('Id') ?></th>
-            <td><?= $this->Number->format($status->id) ?></td>
-        </tr>
     </table>
-    <div class="related">
+<!--    <div class="related">
         <h4><?= __('Related Positions Formations') ?></h4>
         <?php if (!empty($status->positions_formations)): ?>
         <table cellpadding="0" cellspacing="0">
@@ -53,5 +49,5 @@
             <?php endforeach; ?>
         </table>
         <?php endif; ?>
-    </div>
+    </div>-->
 </div>

@@ -27,7 +27,6 @@
     <table cellpadding="0" cellspacing="0">
         <thead>
             <tr>
-                <th scope="col"><?= $this->Paginator->sort('id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('number') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('user_id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('position_id') ?></th>
@@ -44,7 +43,6 @@
         <tbody>
             <?php foreach ($employes as $employe): ?>
             <tr>
-                <td><?= $this->Number->format($employe->id) ?></td>
                 <td><?= h($employe->number) ?></td>
                 <td><?= $employe->has('user') ? $this->Html->link($employe->user->fullName, ['controller' => 'Users', 'action' => 'view', $employe->user->id]) : '' ?></td>
                 <td><?= $employe->has('position') ? $this->Html->link($employe->position->title, ['controller' => 'Positions', 'action' => 'view', $employe->position->id]) : '' ?></td>
@@ -54,7 +52,7 @@
                 <td><?= h($employe->email) ?></td>
                 <td><?= h($employe->name) ?></td>
                 <td><?= h($employe->firstName) ?></td>
-                <td><?= h($employe->actif) ?></td>
+                <td><?= h($employe->actif ? __('Yes') : __('No')) ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['action' => 'view', $employe->id]) ?>
                     <?= $this->Html->link(__('Edit'), ['action' => 'edit', $employe->id]) ?>

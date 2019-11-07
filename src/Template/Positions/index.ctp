@@ -19,7 +19,6 @@
     <table cellpadding="0" cellspacing="0">
         <thead>
             <tr>
-                <th scope="col"><?= $this->Paginator->sort('id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('title') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('description') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('created') ?></th>
@@ -30,7 +29,6 @@
         <tbody>
             <?php foreach ($positions as $position): ?>
             <tr>
-                <td><?= $this->Number->format($position->id) ?></td>
                 <td><?= h($position->title) ?></td>
                 <td><?= h($position->description) ?></td>
                 <td><?= h($position->created) ?></td>

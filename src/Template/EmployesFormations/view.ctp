@@ -29,10 +29,6 @@
             <td><?= $employesFormation->has('formation') ? $this->Html->link($employesFormation->formation->title, ['controller' => 'Formations', 'action' => 'view', $employesFormation->formation->id]) : '' ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Id') ?></th>
-            <td><?= $this->Number->format($employesFormation->id) ?></td>
-        </tr>
-        <tr>
             <th scope="row"><?= __('Date Done') ?></th>
             <td><?= h($employesFormation->date_done) ?></td>
         </tr>

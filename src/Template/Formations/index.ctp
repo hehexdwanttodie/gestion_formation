@@ -27,7 +27,6 @@
     <table cellpadding="0" cellspacing="0">
         <thead>
             <tr>
-                <th scope="col"><?= $this->Paginator->sort('id') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('title') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('description') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('category_id') ?></th>
@@ -43,7 +42,6 @@
         <tbody>
             <?php foreach ($formations as $formation): ?>
             <tr>
-                <td><?= $this->Number->format($formation->id) ?></td>
                 <td><?= h($formation->title) ?></td>
                 <td><?= h($formation->description) ?></td>
                 <td><?= $formation->has('category') ? $this->Html->link($formation->category->name, ['controller' => 'Categories', 'action' => 'view', $formation->category->id]) : '' ?></td>

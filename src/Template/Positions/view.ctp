@@ -29,10 +29,6 @@
             <td><?= h($position->description) ?></td>
         </tr>
         <tr>
-            <th scope="row"><?= __('Id') ?></th>
-            <td><?= $this->Number->format($position->id) ?></td>
-        </tr>
-        <tr>
             <th scope="row"><?= __('Created') ?></th>
             <td><?= h($position->created) ?></td>
         </tr>
@@ -46,13 +42,8 @@
         <?php if (!empty($position->formations)): ?>
         <table cellpadding="0" cellspacing="0">
             <tr>
-                <th scope="col"><?= __('Id') ?></th>
                 <th scope="col"><?= __('Title') ?></th>
                 <th scope="col"><?= __('Description') ?></th>
-                <th scope="col"><?= __('Category Id') ?></th>
-                <th scope="col"><?= __('Frequency Id') ?></th>
-                <th scope="col"><?= __('Modality Id') ?></th>
-                <th scope="col"><?= __('Reminder Id') ?></th>
                 <th scope="col"><?= __('Duration') ?></th>
                 <th scope="col"><?= __('Created') ?></th>
                 <th scope="col"><?= __('Modified') ?></th>
@@ -60,14 +51,9 @@
             </tr>
             <?php foreach ($position->formations as $formations): ?>
             <tr>
-                <td><?= h($formations->id) ?></td>
                 <td><?= h($formations->title) ?></td>
                 <td><?= h($formations->description) ?></td>
-                <td><?= h($formations->category_id) ?></td>
-                <td><?= h($formations->frequency_id) ?></td>
-                <td><?= h($formations->modality_id) ?></td>
-                <td><?= h($formations->reminder_id) ?></td>
-                <td><?= h($formations->duration) ?></td>
+                <td><?= h($formations->duration) ?> heures</td>
                 <td><?= h($formations->created) ?></td>
                 <td><?= h($formations->modified) ?></td>
                 <td class="actions">
@@ -85,13 +71,7 @@
         <?php if (!empty($position->employes)): ?>
         <table cellpadding="0" cellspacing="0">
             <tr>
-                <th scope="col"><?= __('Id') ?></th>
                 <th scope="col"><?= __('Number') ?></th>
-                <th scope="col"><?= __('User Id') ?></th>
-                <th scope="col"><?= __('Position Id') ?></th>
-                <th scope="col"><?= __('Building Id') ?></th>
-                <th scope="col"><?= __('Civility Id') ?></th>
-                <th scope="col"><?= __('Language Id') ?></th>
                 <th scope="col"><?= __('Email') ?></th>
                 <th scope="col"><?= __('Name') ?></th>
                 <th scope="col"><?= __('FirstName') ?></th>
@@ -100,17 +80,11 @@
             </tr>
             <?php foreach ($position->employes as $employes): ?>
             <tr>
-                <td><?= h($employes->id) ?></td>
                 <td><?= h($employes->number) ?></td>
-                <td><?= h($employes->user_id) ?></td>
-                <td><?= h($employes->position_id) ?></td>
-                <td><?= h($employes->building_id) ?></td>
-                <td><?= h($employes->civility_id) ?></td>
-                <td><?= h($employes->language_id) ?></td>
                 <td><?= h($employes->email) ?></td>
                 <td><?= h($employes->name) ?></td>
                 <td><?= h($employes->firstName) ?></td>
-                <td><?= h($employes->actif) ?></td>
+                <td><?= h($employes->actif ? __('Yes') : __('No')) ?></td>
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['controller' => 'Employes', 'action' => 'view', $employes->id]) ?>
                     <?= $this->Html->link(__('Edit'), ['controller' => 'Employes', 'action' => 'edit', $employes->id]) ?>

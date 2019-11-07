@@ -121,8 +121,17 @@ class EmployesController extends AppController
     public function isAuthorized($user)
     {
         $action = $this->request->getParam('action');
-        if (in_array($action, ['index','add', 'edit', 'delete','view'])) {
+        if (in_array($action, ['index','add', 'edit', 'delete','view', 'formation'])) {
             return true;
         }
+    }
+    
+    public function formation($id = null)
+    {
+        $employe = $this->Employes->get($id, [
+            'contain' => ['Users', 'Positions', 'Buildings', 'Civilities', 'Languages', 'Formations']
+        ]);
+
+        $this->set('employe', $employe);
     }
 }
