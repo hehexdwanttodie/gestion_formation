@@ -60,8 +60,8 @@ class FilesController extends AppController
                     $file->name = $fileName;
                     if (strpos($fileName, '.pdf') === false) {
                         $this->Flash->error(__('Please only upload a PDF file!'));
-                    //}else if(size($fileName) >= 2097152) {
-                        //$this->Flash->error(__('File has to be less then 2 megabytes'));
+                    }else if(filesize('pdf/Files/'.$fileName) >= 2097152) {
+                        $this->Flash->error(__('File has to be less then 2 megabytes'));
                     }else{
                         $file->path = $uploadPath;
                         if ($this->Files->save($file)) {
@@ -105,8 +105,8 @@ class FilesController extends AppController
                     $file->name = $fileName;
                     if (strpos($fileName, '.pdf') === false) {
                         $this->Flash->error(__('Please only upload a PDF file!'));
-                        //}else if(size($fileName) >= 2097152) {
-                        //$this->Flash->error(__('File has to be less then 2 megabytes'));
+                    }else if(filesize('pdf/Files/'.$fileName) >= 2097152) {
+                        $this->Flash->error(__('File has to be less then 2 megabytes'));
                     }else{
                         $file->path = $uploadPath;
                         if ($this->Files->save($file)) {
