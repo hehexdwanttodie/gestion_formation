@@ -125,11 +125,11 @@ class EmployesController extends AppController
             return true;
         }
     }
-    
+
     public function formation($id = null)
     {
         $employe = $this->Employes->get($id, [
-            'contain' => ['Users', 'Positions', 'Buildings', 'Civilities', 'Languages', 'Formations']
+            'contain' => ['Users', 'Positions', 'Buildings', 'Civilities', 'Languages', 'Formations'=> ['Modalities','Frequencies','Reminders']]
         ]);
 
         $this->set('employe', $employe);

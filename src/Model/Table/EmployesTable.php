@@ -65,6 +65,9 @@ class EmployesTable extends Table
             'targetForeignKey' => 'formation_id',
             'joinTable' => 'employes_formations'
         ]);
+        $this->hasMany('EmployesFormations', [
+            'foreignKey' => 'employe_id',
+        ]);
     }
 
     /**

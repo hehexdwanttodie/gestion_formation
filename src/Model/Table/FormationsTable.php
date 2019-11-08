@@ -71,6 +71,9 @@ class FormationsTable extends Table
             'targetForeignKey' => 'position_id',
             'joinTable' => 'positions_formations'
         ]);
+        $this->hasMany('EmployesFormations', [
+            'foreignKey' => 'formation_id',
+        ]);
     }
 
     /**
