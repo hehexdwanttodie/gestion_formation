@@ -8,6 +8,8 @@
     <ul class="side-nav">
         <li class="heading"><?= __('Actions') ?></li>
         <li><?= $this->Html->link(__('New File'), ['action' => 'add']) ?></li>
+        <li><?= $this->Html->link(__('List Employes Formations'), ['controller' => 'EmployesFormations', 'action' => 'index']) ?></li>
+        <li><?= $this->Html->link(__('New Employes Formation'), ['controller' => 'EmployesFormations', 'action' => 'add']) ?></li>
     </ul>
 </nav>
 <div class="files index large-9 medium-8 columns content">
@@ -21,7 +23,7 @@
                 <th scope="col"><?= $this->Paginator->sort('path') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('created') ?></th>
                 <th scope="col"><?= $this->Paginator->sort('modfied') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('status') ?></th>
+                <!--<th scope="col"><?= $this->Paginator->sort('status') ?></th>-->
                 <th scope="col" class="actions"><?= __('Actions') ?></th>
             </tr>
         </thead>
@@ -29,15 +31,16 @@
             <?php foreach ($files as $file): ?>
             <tr>
                 <td><?= $this->Number->format($file->id) ?></td>
-                <td><?= $this->Number->format($file->employeFormation_id) ?></td>
+                <td><?= $file->has('employes_formation') ? $this->Html->link($file->employes_formation->id, ['controller' => 'EmployesFormations', 'action' => 'view', $file->employes_formation->id]) : '' ?></td>
                 <td><?= h($file->name) ?></td>
                 <td><?= h($file->path) ?></td>
                 <td><?= h($file->created) ?></td>
                 <td><?= h($file->modfied) ?></td>
-                <td><?= h($file->status) ?></td>
+                <!--<td><?= h($file->status) ?></td> -->
                 <td class="actions">
                     <?= $this->Html->link(__('View'), ['action' => 'view', $file->id]) ?>
                     <?= $this->Html->link(__('Edit'), ['action' => 'edit', $file->id]) ?>
+                    <?= $this->Html->link(__('Download'), ['action' => 'download', $file->id]) ?>
                     <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $file->id], ['confirm' => __('Are you sure you want to delete # {0}?', $file->id)]) ?>
                 </td>
             </tr>

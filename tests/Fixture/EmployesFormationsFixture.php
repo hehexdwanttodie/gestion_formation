@@ -47,8 +47,8 @@ class EmployesFormationsFixture extends TestFixture
                 'id' => 1,
                 'employe_id' => 1,
                 'formation_id' => 1,
-                'date_done' => '2019-11-01',
-                'date_due' => '2019-11-01'
+                'date_done' => '2019-11-08',
+                'date_due' => '2019-11-08'
             ],
         ];
         parent::init();

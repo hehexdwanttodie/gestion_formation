@@ -51,6 +51,9 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
                 <li>
                     <?= $this->Html->link('Postes', ['controller' => 'positions', 'action' => 'index/']); ?>
                 </li>
+                <li>
+                    <?= $this->Html->link('Fichiers', ['controller' => 'files', 'action' => 'index/']); ?>
+                </li>
                 <li><?php
                     $loguser = $this->request->session()->read('Auth.User');
                     if ($loguser) {

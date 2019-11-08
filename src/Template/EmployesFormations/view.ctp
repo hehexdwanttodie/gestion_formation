@@ -18,7 +18,7 @@
     </ul>
 </nav>
 <div class="employesFormations view large-9 medium-8 columns content">
-    <h3><?= h($employesFormation->id) ?></h3>
+    <h3><?= h($employesFormation->employe->name) ?> (ID: <?= h($employesFormation->id) ?>)</h3>
     <table class="vertical-table">
         <tr>
             <th scope="row"><?= __('Employe') ?></th>
@@ -27,6 +27,10 @@
         <tr>
             <th scope="row"><?= __('Formation') ?></th>
             <td><?= $employesFormation->has('formation') ? $this->Html->link($employesFormation->formation->title, ['controller' => 'Formations', 'action' => 'view', $employesFormation->formation->id]) : '' ?></td>
+        </tr>
+        <tr>
+            <th scope="row"><?= __('Id') ?></th>
+            <td><?= $this->Number->format($employesFormation->id) ?></td>
         </tr>
         <tr>
             <th scope="row"><?= __('Date Done') ?></th>

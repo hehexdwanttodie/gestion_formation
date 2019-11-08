@@ -20,7 +20,8 @@ class FilesControllerTest extends TestCase
      * @var array
      */
     public $fixtures = [
-        'app.Files'
+        'app.Files',
+        'app.EmployesFormations'
     ];
 
     /**

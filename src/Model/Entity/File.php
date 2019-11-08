@@ -13,6 +13,8 @@ use Cake\ORM\Entity;
  * @property \Cake\I18n\FrozenTime $created
  * @property \Cake\I18n\FrozenTime $modfied
  * @property bool $status
+ *
+ * @property \App\Model\Entity\EmployesFormation $employes_formation
  */
 class File extends Entity
 {
@@ -31,6 +33,7 @@ class File extends Entity
         'path' => true,
         'created' => true,
         'modfied' => true,
-        'status' => true
+        'status' => true,
+        'employes_formation' => true
     ];
 }

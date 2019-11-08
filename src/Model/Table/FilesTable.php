@@ -9,7 +9,7 @@ use Cake\Validation\Validator;
 /**
  * Files Model
  *
- * @property &\Cake\ORM\Association\BelongsTo $EmployesFormations
+ * @property \App\Model\Table\EmployesFormationsTable&\Cake\ORM\Association\BelongsTo $EmployesFormations
  *
  * @method \App\Model\Entity\File get($primaryKey, $options = [])
  * @method \App\Model\Entity\File newEntity($data = null, array $options = [])
@@ -57,18 +57,6 @@ class FilesTable extends Table
         $validator
             ->integer('id')
             ->allowEmptyString('id', null, 'create');
-
-        $validator
-            ->scalar('name')
-            ->maxLength('name', 255)
-            ->requirePresence('name', 'create')
-            ->notEmptyString('name');
-
-        $validator
-            ->scalar('path')
-            ->maxLength('path', 255)
-            ->requirePresence('path', 'create')
-            ->notEmptyString('path');
 
         $validator
             ->dateTime('modfied')
