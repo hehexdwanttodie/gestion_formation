@@ -11,7 +11,7 @@
     </ul>
 </nav>
 <div class="employes view large-9 medium-8 columns content">
-    <h3><?= h($employe->name) ?></h3>
+    <h3>Training Plan</h3>
     <table class="vertical-table">
         <tr>
             <th scope="row"><?= __('Number') ?></th>
